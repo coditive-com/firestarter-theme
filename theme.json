@@ -6,9 +6,19 @@
       "palette": [
         {
           "slug": "primary",
-          "color": "#525ddc",
+          "color": "#2c185c",
           "name": "Primary"
-        }
+        },
+        {
+          "slug": "secondary",
+          "color": "#00ff00",
+          "name": "Secondary"
+        },
+        {
+          "slug": "text",
+          "color": "#222",
+          "name": "Text Color"
+        },
       ],
       "custom": false,
       "customGradient": false,
@@ -27,7 +37,43 @@
       "units": ["px", "%", "em", "rem", "vw", "vh"]
     },
     "typography": {
-      "customFontSize": false
+      "fontSizes": [
+        {
+          "name": "Tiny",
+          "size": "1.024rem",
+          "slug": "tiny"
+        },
+        {
+          "name": "Small",
+          "size": "1.28rem",
+          "slug": "small"
+        },
+        {
+          "name": "Normal",
+          "size": "1.6rem",
+          "slug": "normal"
+        },
+        {
+          "name": "Large",
+          "size": "2rem",
+          "slug": "large"
+        },
+        {
+          "name": "Extra Large",
+          "size": "2.5rem",
+          "slug": "extra-large"
+        },
+        {
+          "name": "Huge",
+          "size": "3.2rem",
+          "slug": "huge"
+        },
+        {
+          "name": "Gigantic",
+          "size": "3.9rem",
+          "slug": "gigantic"
+        }
+      ]
     }
   }
 }
