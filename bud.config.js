@@ -12,7 +12,6 @@ module.exports = async (app) => {
      */
     .entry({
       app: ['@scripts/app', '@styles/app'],
-      editor: ['@scripts/editor', '@styles/editor'],
     })
 
     /**
