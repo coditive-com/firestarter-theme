@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "bud dev",
     "build": "bud build",
+    "clean": "bud clean",
     "translate": "yarn translate:pot && yarn translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
     "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
@@ -18,8 +19,17 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "5.8.7",
-    "@roots/bud-tailwindcss": "5.8.7",
-    "@roots/sage": "5.8.7"
+    "@roots/bud": "^5.8.1",
+    "@roots/bud-babel": "^5.8.1",
+    "@roots/bud-eslint": "^5.8.1",
+    "@roots/bud-postcss": "^5.8.1",
+    "@roots/bud-sass": "^5.8.1",
+    "@roots/bud-typescript": "^5.8.1",
+    "@roots/bud-vue": "^5.8.1",
+    "@roots/sage": "^5.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "add": "^2.0.6",
+    "yarn": "^1.22.18"
   }
 }

@@ -1,15 +1,11 @@
-import {domReady} from '@roots/sage/client';
+import { domReady } from '@roots/sage/client';
 
-/**
- * app.main
- */
-const main = async (err) => {
+const main = async(err) => {
   if (err) {
-    // handle hmr errors
     console.error(err);
   }
 
-  // application code
+  console.log('lorem ipsum');
 };
 
 /**

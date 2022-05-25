@@ -12,7 +12,6 @@ module.exports = async (app) => {
      */
     .entry({
       app: ['@scripts/app', '@styles/app'],
-      editor: ['@scripts/editor', '@styles/editor'],
     })
 
     /**
@@ -32,7 +31,7 @@ module.exports = async (app) => {
      *
      * This should be the URL you use to visit your local development server.
      */
-    .proxy('http://example.test')
+    .proxy('http://wordpress.tentyp.test/')
 
     /**
      * Development URL to be used in the browser.

@@ -1,0 +1,5 @@
+{
+  "extends": "@roots/bud-typescript/tsconfig/tsconfig.json",
+  "compilerOptions": {},
+  "include": ["resources/scripts/**/*.ts", "resources/scripts/**/*.js"],
+}
