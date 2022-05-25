@@ -31,7 +31,7 @@ module.exports = async (app) => {
      *
      * This should be the URL you use to visit your local development server.
      */
-    .proxy('http://wordpress.tentyp.test/')
+    .proxy('http://firestarter.test/')
 
     /**
      * Development URL to be used in the browser.
