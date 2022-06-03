@@ -29,10 +29,11 @@
 
     span {
       position: relative;
+      display: block;
       width: 2.8rem;
       height: .3rem;
       margin: 0 0 .5rem;
-      background-color: var(--c-text);
+      background-color: var(--wp--preset--color--text);
       transition: transform .25s ease-in-out;
 
       &:last-of-type {
@@ -68,7 +69,7 @@
     width: 100%;
     height: 100vh;
     padding: 1.5rem;
-    background-color: var(--c-white);
+    background-color: var(--wp--preset--color--white);
     opacity: 0;
     visibility: hidden;
     transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
