@@ -18,7 +18,7 @@
           "slug": "text",
           "color": "#222",
           "name": "Text Color"
-        },
+        }
       ],
       "custom": false,
       "customGradient": false,
