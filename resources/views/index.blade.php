@@ -9,7 +9,7 @@
   @if (have_posts())
     <div class="listing -wrapper">
       @while(have_posts()) @php(the_post())
-        @include('components.post-tile')
+        <x-post-tile class="listing__tile" :post-id="get_the_ID()"/>
       @endwhile
     </div>
 
