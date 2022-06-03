@@ -1,0 +1,24 @@
+html {
+  .editor-styles-wrapper {    
+    h1:not(.editor-post-title) {
+      font-size: var(--wp--preset--font-size--gigantic);
+    }
+    
+    h2 {
+      font-size: var(--wp--preset--font-size--huge);
+    }
+    
+    h3 {
+      font-size: var(--wp--preset--font-size--extra-large);
+    }
+    
+    h4 {
+      font-size: var(--wp--preset--font-size--large);
+    }
+    
+    h5,
+    h6 {
+      font-size: var(--wp--preset--font-size--medium);
+    }
+  }
+}

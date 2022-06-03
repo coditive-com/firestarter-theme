@@ -39,11 +39,6 @@
     "typography": {
       "fontSizes": [
         {
-          "name": "Tiny",
-          "size": "1.024rem",
-          "slug": "tiny"
-        },
-        {
           "name": "Small",
           "size": "1.28rem",
           "slug": "small"
@@ -54,23 +49,28 @@
           "slug": "normal"
         },
         {
+          "name": "Medium - Heading 5, 6",
+          "size": "2.133rem",
+          "slug": "medium"
+        },
+        {
           "name": "Large",
-          "size": "2rem",
+          "size": "2.843rem",
           "slug": "large"
         },
         {
           "name": "Extra Large",
-          "size": "2.5rem",
+          "size": "3.79rem",
           "slug": "extra-large"
         },
         {
           "name": "Huge",
-          "size": "3.2rem",
+          "size": "5.052rem",
           "slug": "huge"
         },
         {
           "name": "Gigantic",
-          "size": "3.9rem",
+          "size": "6.734rem",
           "slug": "gigantic"
         }
       ]

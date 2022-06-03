@@ -1,29 +1,31 @@
 body {
-  font-size: 1.4rem;
+  font-size: var(--wp--preset--font-size--normal);
   color: var(--wp--preset--color--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
+  line-height: normal;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  font-weight: 700;
+h1 {
+  font-size: var(--wp--preset--font-size--gigantic);
 }
 
-h1,
-h2,
-h3,
-h4,
+h2 {
+  font-size: var(--wp--preset--font-size--huge);
+}
+
+h3 {
+  font-size: var(--wp--preset--font-size--extra-large);
+}
+
+h4 {
+  font-size: var(--wp--preset--font-size--large);
+}
+
 h5,
 h6 {
-  margin-top: 0;
-  font-weight: 700;
+  font-size: var(--wp--preset--font-size--medium);
 }
 
 a {

@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+  max-width: max-content;
+  padding: 1.2rem 1.4rem;
+  color: var(--c-white);
+  font-family: var(--f-headings);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--c-primary);
+  transition: opacity .25s ease-in-out;
+
+  &:hover {
+    color: var(--c-white);
+    text-decoration: none;
+    opacity: .8;
+  }
+}
