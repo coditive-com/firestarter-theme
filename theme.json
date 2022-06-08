@@ -50,27 +50,27 @@
         },
         {
           "name": "Medium - Heading 5, 6",
-          "size": "2.133rem",
+          "size": "2.0rem",
           "slug": "medium"
         },
         {
           "name": "Large",
-          "size": "2.843rem",
+          "size": "2.5rem",
           "slug": "large"
         },
         {
           "name": "Extra Large",
-          "size": "3.79rem",
+          "size": "3.125rem",
           "slug": "extra-large"
         },
         {
           "name": "Huge",
-          "size": "5.052rem",
+          "size": "3.906rem",
           "slug": "huge"
         },
         {
           "name": "Gigantic",
-          "size": "6.734rem",
+          "size": "4.883rem",
           "slug": "gigantic"
         }
       ]
