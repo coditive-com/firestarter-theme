@@ -7,13 +7,13 @@
   @include('partials.page-header')
 
   @if (have_posts())
-    <div class="listing -wrapper">
+    <div class="listing">
       @while(have_posts()) @php(the_post())
         <x-post-tile class="listing__tile" :post-id="get_the_ID()"/>
       @endwhile
     </div>
 
-    <div class="pagination -wrapper">
+    <div class="pagination">
       {!! get_the_posts_navigation() !!}
     </div>
   @else

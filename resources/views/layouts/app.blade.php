@@ -4,7 +4,7 @@
 
 @include('sections.site-header')
 
-  <main id="main" class="main">
+  <main id="main" class="-wrapper @yield('main-class')">
     @yield('content')
   </main>
 
