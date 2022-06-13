@@ -5,14 +5,14 @@
     </a>
   </div>
 
-  <button class="site-header__toggler" type="button" data-main-navigation-toggler>
+  <button id="primary-navigation-toggler" class="site-header__toggler" type="button">
     <span class="side-header__togler-line"></span>
     <span class="side-header__togler-line"></span>
     <span class="side-header__togler-line"></span>
   </button>
 
   @if (has_nav_menu('primary_navigation'))
-    <nav class="site-header__nav" data-main-navigation-menu>
+    <nav id="primary-navigation" class="site-header__nav">
       {!! 
         wp_nav_menu([
           'theme_location' => 'primary_navigation',
