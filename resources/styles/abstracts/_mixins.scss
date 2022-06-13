@@ -1,6 +1,7 @@
 /**
  * font-face mixin
- * Usage Example - see "base/_typography.scss" file
+ * Usage Example - Font files: OpenSans-Regular.woff, OpenSans-Regular.woff2 in "resources/fonts/OpenSans" directory
+ * @include font-face("Open Sans", 400, normal, "OpenSans", "OpenSans-Regular");
  */
 
 @mixin font-face($font_family, $font_weight, $font_style, $font_directory, $font_filename, $font_version: "1.0.0") {

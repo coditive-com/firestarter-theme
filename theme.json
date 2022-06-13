@@ -39,12 +39,12 @@
     "typography": {
       "fontFamilies": [
 				{
-					"fontFamily": "Open Sans, sans-serif",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif",
 					"slug": "default",
 					"name": "Default"
 				},
 				{
-					"fontFamily": "Open Sans, sans-serif",
+					"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
 					"slug": "headings",
 					"name": "Headings"
 				}
