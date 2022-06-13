@@ -11,7 +11,7 @@ class App extends Composer
      *
      * @var array
      */
-    protected static $views = [
+  protected static $views = [
         '*',
     ];
 
@@ -20,20 +20,32 @@ class App extends Composer
      *
      * @return array
      */
-    public function with()
-    {
-        return [
-            'siteName' => $this->siteName(),
-        ];
+  public function with()
+  {
+      return [
+          'siteName' => $this->siteName(),
+      ];
+  }
+
+
+  public function siteName(): string
+  {
+    if (function_exists('get_field')) {
+      $logoStandard = get_field('s_logo', 'option');
+      $logoRetina = get_field('s_logo_retina', 'option');
+
+      if (empty($logoStandard)) {
+        return get_bloginfo('name');
+      }
+
+      $srcset = '';
+      if (! empty($logoStandard) && ! empty($logoRetina)) {
+        $srcset = 'srcset="' . $logoStandard . ' 1x, ' . $logoRetina . ' 2x"';
+      }
+
+      return '<img src="' . $logoStandard . '" ' . $srcset . ' />';
     }
 
-    /**
-     * Returns the site name.
-     *
-     * @return string
-     */
-    public function siteName()
-    {
-        return get_bloginfo('name', 'display');
-    }
+    return get_bloginfo('name');
+  }
 }
