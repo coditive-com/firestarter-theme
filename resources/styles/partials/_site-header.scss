@@ -1,4 +1,7 @@
 .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 7rem;
   border-bottom: .1rem solid rgba(0 0 0 / .1);
 
@@ -26,6 +29,10 @@
     outline: none;
     cursor: pointer;
     z-index: 1010;
+
+    @include up(xl) {
+      display: none;
+    }
 
     span {
       position: relative;
@@ -75,7 +82,7 @@
     transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
     z-index: 1001;
 
-    @include up(md) {
+    @include up(xl) {
       position: relative;
       width: auto;
       height: auto;
@@ -93,16 +100,14 @@
   }
 
   &__menu {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
     list-style-type: none;
 
     li {
       margin: 0 1rem;
-    }
-
-    .sub-menu {
-      display: none;
     }
   }
 }
