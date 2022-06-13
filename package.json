@@ -21,6 +21,9 @@
     "@roots/bud": "5.8.7",
     "@roots/bud-postcss": "^5.8.7",
     "@roots/bud-sass": "^5.8.7",
-    "@roots/sage": "5.8.7"
+    "@roots/sage": "5.8.7",
+    "stylelint": "^14.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0"
   }
 }
