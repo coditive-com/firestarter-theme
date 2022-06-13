@@ -37,6 +37,18 @@
       "units": ["px", "%", "em", "rem", "vw", "vh"]
     },
     "typography": {
+      "fontFamilies": [
+				{
+					"fontFamily": "Open Sans, sans-serif",
+					"slug": "default",
+					"name": "Default"
+				},
+				{
+					"fontFamily": "Open Sans, sans-serif",
+					"slug": "headings",
+					"name": "Headings"
+				}
+			],
       "fontSizes": [
         {
           "name": "Small",

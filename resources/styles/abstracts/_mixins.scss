@@ -3,7 +3,7 @@
  * Usage Example - see "base/_typography.scss" file
  */
 
-@mixin font-face($font_family, $font_weight, $font_style, $font_name, $font_type, $fonts_path: "../fonts", $font_version: "1.0.0") {
+@mixin font-face($font_family, $font_weight, $font_style, $font_directory, $font_filename, $font_version: "1.0.0") {
   @font-face {
     font-family: "#{$font_family}";
     font-style: $font_style;
@@ -11,8 +11,8 @@
     font-display: swap;
 
     src:
-      url("#{$fonts_path}/#{$font_name}-#{$font_type}.woff2?v=#{$font_version}") format("woff2"),
-      url("#{$fonts_path}/#{$font_name}-#{$font_type}.woff?v=#{$font_version}") format("woff");
+      url("~@fonts/#{$font_directory}/#{$font_filename}.woff2?v=#{$font_version}") format("woff2"),
+      url("~@fonts/#{$font_directory}/#{$font_filename}.woff?v=#{$font_version}") format("woff");
   }
 }
 

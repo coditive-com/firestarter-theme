@@ -1,10 +1,24 @@
+@include font-face("Open Sans", 400, normal, "OpenSans", "OpenSans-Regular");
+@include font-face("Open Sans", 400, italic, "OpenSans", "OpenSans-Italic");
+@include font-face("Open Sans", 700, normal, "OpenSans", "OpenSans-Bold");
+
 body {
+  font-family: var(--wp--preset--font-family--default);
   font-size: var(--wp--preset--font-size--normal);
   color: var(--wp--preset--color--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   line-height: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--wp--preset--font-family--headings);
 }
 
 h1 {
