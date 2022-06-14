@@ -6,10 +6,14 @@ use Illuminate\View\Component;
 
 class PostTile extends Component
 {
-  public $class;
-  public $title;
-  public $link;
-  public $excerpt;
+  public string $class;
+
+  public string $title;
+
+  public string $link;
+
+  public string $excerpt;
+
   protected $postId;
 
   /**
@@ -21,14 +25,14 @@ class PostTile extends Component
   public function __construct($class, $postId = null)
   {
     $this->class = $class;
-    $this->title = $this->getTitle();
+    $this->setTitle(get_the_title($this->postId));
     $this->link = $this->getLink();
     $this->excerpt = $this->getExcerpt();
   }
 
-  protected function getTitle()
+  private function setTitle(string $title): void
   {
-    return get_the_title($this->postId);
+    $this->title = $title;
   }
 
   protected function getLink()
