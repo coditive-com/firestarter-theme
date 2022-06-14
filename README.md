@@ -105,28 +105,18 @@ Theme uses [facade design pattern](https://refactoring.guru/design-patterns/faca
 `App/Posts` is boundary context for `Posts` with `Posts.php` as fasade for internal actions. This facade should be initialized in the `App\App` like the here.
 
 ```php
-namespace App\Core;
+namespace App;
 
-use App\Core\Hooks;
 use App\Core\Singleton;
 use App\Posts\Posts;
 
-class Facade extends Singleton
+class App extends Singleton
 {
-    private Hooks $hooks;
-
     private Posts $posts;
 
     protected function __construct()
     {
-        $this->hooks = new Hooks();
-
-        $this->hooks->wrapHooks($this->posts = new Posts()); # <- Context Initialization
-    }
-
-    public function hooks(): Hooks
-    {
-        return $this->hooks;
+        $this->posts = fireclass(Posts::class); # <- Context Initialization
     }
 
     public function posts(): Posts
@@ -140,7 +130,7 @@ This facade might be used everywhere you need using `firestarter` function. Exam
 
 ### Hooks
 
-Coditive theme a custom way for firing the WordPress hooks in the controllers. You can use `@action`, `@filter` and `@shortcode` for initializing hooks in specific class.
+Coditive theme a custom way for firing the WordPress hooks in the controllers. You can use `@action`, `@filter` and `@shortcode` in the comment block for initializing hooks in specific class.
 
 ```php
 class Example {
