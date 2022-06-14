@@ -7,7 +7,9 @@
     </h4>
   </header>
 
-  <p class="post-tile__excerpt">
-    {!! $excerpt !!}
-  </p>
+  @if (! empty($excerpt))
+    <p class="post-tile__excerpt">
+      {!! $excerpt !!}
+    </p>
+  @endif
 </article>
