@@ -3,16 +3,17 @@
   align-items: center;
   max-width: max-content;
   padding: 1.2rem 1.4rem;
-  color: var(--c-white);
-  font-family: var(--f-headings);
+  color: var(--wp--preset--color--white);
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  background: var(--c-primary);
+  background-color: var(--wp--preset--color--primary);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
   transition: opacity .25s ease-in-out;
 
   &:hover {
-    color: var(--c-white);
     text-decoration: none;
     opacity: .8;
   }
