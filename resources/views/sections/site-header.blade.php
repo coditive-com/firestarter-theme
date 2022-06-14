@@ -1,7 +1,7 @@
 <header class="site-header -wrapper">
   <div class="site-header__logo" itemscope itemtype="http://schema.org/Organization">
     <a href="{!! home_url( '/' ) !!}" class="site-header__logo-url" itemprop="url" aria-label="{!! get_bloginfo('name') !!}">
-      {!! $siteName !!}
+      {!! $siteLogo !!}
     </a>
   </div>
 

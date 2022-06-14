@@ -23,12 +23,12 @@ class App extends Composer
   public function with()
   {
       return [
-          'siteName' => $this->siteName(),
+          'siteLogo' => $this->siteLogo(),
       ];
   }
 
 
-  public function siteName(): string
+  public function siteLogo(): string
   {
     if (function_exists('get_field')) {
       $logoStandard = get_field('s_logo', 'option');
