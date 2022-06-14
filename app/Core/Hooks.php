@@ -31,7 +31,7 @@ class Hooks extends Singleton
         return $this->addHook('shortcode', $name, $callback);
     }
 
-    public function wrapHooks(object $object = null): void
+    public function wrapHooks(object $object = null): object
     {
         if (is_null($object)) {
             $object = $this;
@@ -40,7 +40,7 @@ class Hooks extends Singleton
         $class_name = get_class($object);
 
         if (isset($this->calledHooks[$class_name])) {
-            return;
+            return $object;
         }
 
         $this->calledHooks[$class_name] = true;
@@ -62,6 +62,8 @@ class Hooks extends Singleton
                 }
             }
         }
+
+        return $object;
     }
 
     /**

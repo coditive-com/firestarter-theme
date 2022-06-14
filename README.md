@@ -102,7 +102,7 @@ Theme uses [facade design pattern](https://refactoring.guru/design-patterns/faca
 │   ├── ├── Posts.php
 ```
 
-`App/Posts` is boundary context for `Posts` with `Posts.php` as fasade for internal actions. This facade should be initialized in the `App\Core\Facade` like the here.
+`App/Posts` is boundary context for `Posts` with `Posts.php` as fasade for internal actions. This facade should be initialized in the `App\App` like the here.
 
 ```php
 namespace App\Core;
@@ -170,4 +170,4 @@ class Example {
 }
 ```
 
-But to make it work, there is a need to wrap class initialization in `App\Core\Hooks::wrapHooks` function. So instead of `new Example()` you should use `firestarter()->hooks()->wrapHooks(new Example())`.
+But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
