@@ -86,11 +86,25 @@ add_theme_support('sage');
 |
 */
 
-if (! function_exists('firestarter')) {
-    function firestarter(): App\Core\Facade
+if (! function_exists('firehooks')) {
+    function firehooks(): App\Core\Hooks
     {
-        return App\Core\Facade::get();
+        return App\Core\Hooks::get();
     }
-
-    firestarter();
 }
+
+if (! function_exists('fireclass')) {
+    function fireclass(string $class, array $params = []): object
+    {
+        return firehooks()->wrapHooks(new $class(...$params));
+    }
+}
+
+if (! function_exists('firestarter')) {
+    function firestarter(): App\App
+    {
+        return App\App::get();
+    }
+}
+
+firestarter();
