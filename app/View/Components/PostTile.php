@@ -26,8 +26,8 @@ class PostTile extends Component
   {
     $this->class = $class;
     $this->setTitle(get_the_title($this->postId));
-    $this->link = $this->getLink();
-    $this->excerpt = $this->getExcerpt();
+    $this->setLink(get_the_permalink($this->postId));
+    $this->setExcerpt(get_the_excerpt($this->postId));
   }
 
   private function setTitle(string $title): void
@@ -35,14 +35,14 @@ class PostTile extends Component
     $this->title = $title;
   }
 
-  protected function getLink()
+  protected function setLink(string $link): void
   {
-    return get_the_permalink($this->postId);
+    $this->link = $link;
   }
 
-  protected function getExcerpt()
+  protected function setExcerpt(string $excerpt): void
   {
-    return get_the_excerpt($this->postId);
+    $this->excerpt = $excerpt;
   }
 
   /**
