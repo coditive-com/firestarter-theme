@@ -77,3 +77,32 @@ collect(['setup', 'filters'])
 */
 
 add_theme_support('sage');
+
+/*
+|--------------------------------------------------------------------------
+| Enable Coditive Support
+|--------------------------------------------------------------------------
+*/
+
+if (! function_exists('firehooks')) {
+    function firehooks(): App\Core\Hooks
+    {
+        return App\Core\Hooks::get();
+    }
+}
+
+if (! function_exists('fireclass')) {
+    function fireclass(string $class, array $params = []): object
+    {
+        return firehooks()->wrapHooks(new $class(...$params));
+    }
+}
+
+if (! function_exists('firestarter')) {
+    function firestarter(): App\App
+    {
+        return App\App::get();
+    }
+}
+
+firestarter();
