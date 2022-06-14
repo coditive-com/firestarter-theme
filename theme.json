@@ -6,8 +6,18 @@
       "palette": [
         {
           "slug": "primary",
-          "color": "#525ddc",
+          "color": "#2c185c",
           "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#00ff00",
+          "name": "Secondary"
+        },
+        {
+          "slug": "text",
+          "color": "#222",
+          "name": "Text Color"
         }
       ],
       "custom": false,
@@ -27,7 +37,55 @@
       "units": ["px", "%", "em", "rem", "vw", "vh"]
     },
     "typography": {
-      "customFontSize": false
+      "fontFamilies": [
+				{
+					"fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif",
+					"slug": "default",
+					"name": "Default"
+				},
+				{
+					"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
+					"slug": "headings",
+					"name": "Headings"
+				}
+			],
+      "fontSizes": [
+        {
+          "name": "Small",
+          "size": "1.28rem",
+          "slug": "small"
+        },
+        {
+          "name": "Normal",
+          "size": "1.6rem",
+          "slug": "normal"
+        },
+        {
+          "name": "Medium - Heading 5, 6",
+          "size": "2.0rem",
+          "slug": "medium"
+        },
+        {
+          "name": "Large",
+          "size": "2.5rem",
+          "slug": "large"
+        },
+        {
+          "name": "Extra Large",
+          "size": "3.125rem",
+          "slug": "extra-large"
+        },
+        {
+          "name": "Huge",
+          "size": "3.906rem",
+          "slug": "huge"
+        },
+        {
+          "name": "Gigantic",
+          "size": "4.883rem",
+          "slug": "gigantic"
+        }
+      ]
     }
   }
 }

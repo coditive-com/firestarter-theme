@@ -1,0 +1,99 @@
+/**
+ * font-face mixin
+ * Usage Example - Font files: OpenSans-Regular.woff, OpenSans-Regular.woff2 in "resources/fonts/OpenSans" directory
+ * @include font-face("Open Sans", 400, normal, "OpenSans", "OpenSans-Regular");
+ */
+
+@mixin font-face($font_family, $font_weight, $font_style, $font_directory, $font_filename, $font_version: "1.0.0") {
+  @font-face {
+    font-family: "#{$font_family}";
+    font-style: $font_style;
+    font-weight: $font_weight;
+    font-display: swap;
+
+    src:
+      url("~@fonts/#{$font_directory}/#{$font_filename}.woff2?v=#{$font_version}") format("woff2"),
+      url("~@fonts/#{$font_directory}/#{$font_filename}.woff?v=#{$font_version}") format("woff");
+  }
+}
+
+/**
+ * Background mixin - for normal and retina display
+ * Usage Example - Background files: bg-body.png, bg-body@2x.png:
+ * body {
+ *	@include background-2x("../images/bg-body", "png", top center, 100% auto, no-repeat, inherit);
+ * }
+ */
+
+@mixin background-2x($path, $ext: "png", $pos: left top, $size: cover, $repeat: no-repeat, $color: inherit) {
+  $at1x-path: "#{$path}.#{$ext}";
+  $at2x-path: "#{$path}@2x.#{$ext}";
+
+  background-color: $color;
+  background-image: url("#{$at1x-path}");
+  background-position: $pos;
+  background-repeat: $repeat;
+  background-size: $size;
+
+  /* stylelint-disable */
+  @media all and (min-device-pixel-ratio: 1.5), 
+    all and (-o-min-device-pixel-ratio: 3 / 2),
+    all and (min--moz-device-pixel-ratio: 1.5),
+    all and (min-device-pixel-ratio: 1.5) {
+    background-image: url("#{$at2x-path}");
+  }
+}
+
+/**
+ * Mixin to manage responsive breakpoints
+ * Usage Example - @include up(sm)
+ */
+
+@mixin up($up-breakpoint, $up-breakpoints: $breakpoints) {
+  @if map-has-key($up-breakpoints, $up-breakpoint) {
+    $up-breakpoint: map-get($up-breakpoints, $up-breakpoint);
+  }
+
+  @media (min-width: #{$up-breakpoint + "px"}) {
+    @content;
+  }
+}
+
+/**
+ * Mixin to manage responsive breakpoints
+ * Usage Example - @include down(sm)
+ */
+
+@mixin down($down-breakpoint, $down-breakpoints: $breakpoints) {
+  @if map-has-key($down-breakpoints, $down-breakpoint) {
+    $down-breakpoint: map-get($down-breakpoints, $down-breakpoint);
+  }
+
+  @media (max-width: #{$down-breakpoint - 1 + "px"}) {
+    @content;
+  }
+}
+
+/**
+ * Mixin to manage responsive breakpoints
+ * Usage Example - @include between(md, lg)
+ */
+
+@mixin between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint + "px") and (max-width: ($upper-breakpoint - 1 + "px")) {
+      @content;
+    }
+  } @else {
+    @if map-has-key($breakpoints, $lower) == false {
+      @warn "Your lower breakpoint was invalid: #{$lower}.";
+    }
+
+    @if map-has-key($breakpoints, $upper) == false {
+      @warn "Your upper breakpoint was invalid: #{$upper}.";
+    }
+  }
+}
