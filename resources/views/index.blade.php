@@ -6,6 +6,8 @@
   @parent
   @include('partials.page-header')
 
+  {!! firestarter()->blocks()->block('base')->render(); !!}
+
   @if (have_posts())
     <div class="listing">
       @while(have_posts()) @php(the_post())
