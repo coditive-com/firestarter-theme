@@ -1,5 +1,7 @@
 <?php
 
+use App\Core\Init;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -56,12 +58,12 @@ try {
 
 collect(['setup', 'filters'])
     ->each(function ($file) {
-        if (! locate_template($file = "app/{$file}.php", true, true)) {
-            wp_die(
-                /* translators: %s is replaced with the relative file path */
-                sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
-            );
-        }
+      if (! locate_template($file = "app/{$file}.php", true, true)) {
+          wp_die(
+              /* translators: %s is replaced with the relative file path */
+              sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
+          );
+      }
     });
 
 /*
@@ -77,3 +79,21 @@ collect(['setup', 'filters'])
 */
 
 add_theme_support('sage');
+
+/*
+|--------------------------------------------------------------------------
+| Enable Coditive Support
+|--------------------------------------------------------------------------
+|
+| Lorem ipsum.
+|
+*/
+
+if (! function_exists('firestarter') && function_exists('App\\firestarter')) {
+    function firestarter(): Init
+    {
+        return App\firestarter();
+    }
+}
+
+firestarter()->hooks();
