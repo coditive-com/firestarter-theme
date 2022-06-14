@@ -4,6 +4,6 @@
   </div>
 
   <p class="site-footer__copyrights">
-    To do: Add copyrights text from ACF options
+    <!-- TODO: Add copyrights text from ACF options -->
   </p>
 </footer>
