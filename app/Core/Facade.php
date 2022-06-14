@@ -6,7 +6,7 @@ use App\Core\ACF;
 use App\Core\Hooks;
 use App\Core\Singleton;
 
-class Init extends Singleton
+class Facade extends Singleton
 {
     private Hooks $hooks;
 

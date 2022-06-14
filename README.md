@@ -23,26 +23,8 @@
 </p>
 
 <p align="center">
-  <strong>WordPress starter theme with Laravel Blade components and templates, Tailwind CSS, and a modern development workflow</strong>
-</p>
-
-<p align="center">
   <a href="https://roots.io/"><strong><code>Website</code></strong></a> &nbsp;&nbsp; <a href="https://docs.roots.io/sage/10.x/installation/"><strong><code>Documentation</code></strong></a> &nbsp;&nbsp; <a href="https://github.com/roots/sage/releases"><strong><code>Releases</code></strong></a> &nbsp;&nbsp; <a href="https://discourse.roots.io/"><strong><code>Support</code></strong></a>
 </p>
-
-## Sponsors
-
-**Sage** is an open source project and completely free to use.
-
-However, the amount of effort needed to maintain and develop new features and products within the Roots ecosystem is not sustainable without proper financial backing. If you have the capability, please consider [sponsoring Roots](https://github.com/sponsors/roots).
-
-<p align="center"><a href="https://github.com/sponsors/roots"><img height="32" src="https://img.shields.io/badge/sponsor%20roots-525ddc?logo=github&logoColor=ffffff&message=" alt="Sponsor Roots"></a></p>
-
-<div align="center">
-<a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="148" height="111"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="148" height="111"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="148" height="111"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="148" height="111"></a>
-
-<a href="https://icons8.com/"><img src="https://cdn.roots.io/app/uploads/icons8.svg" alt="Icons8" width="148" height="111"></a> <a href="https://generodigital.com/"><img src="https://cdn.roots.io/app/uploads/genero.svg" alt="Genero" width="148" height="111"></a> <a href="https://40q.agency/"><img src="https://cdn.roots.io/app/uploads/40q.svg" alt="40Q" width="148" height="111"></a> <a href="https://pantheon.io/"><img src="https://cdn.roots.io/app/uploads/pantheon.svg" alt="Pantheon" width="148" height="111"></a>
-</div>
 
 
 ## Features
@@ -50,7 +32,6 @@ However, the amount of effort needed to maintain and develop new features and pr
 - Harness the power of [Laravel](https://laravel.com) and its available packages thanks to [Acorn](https://github.com/roots/acorn).
 - Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/master/blade).
 - Lightning fast frontend development workflow powered by [Bud](https://bud.js.org/).
-- Out of the box support for [Tailwind CSS](https://tailwindcss.com/).
 
 ## Requirements
 
@@ -65,20 +46,10 @@ Make sure all dependencies have been installed before moving on:
 
 ## Theme installation
 
-Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
+Install Sage in your WordPress themes directory and fire the following commands in directory:
 
-```sh
-# @ app/themes/ or wp-content/themes/
-$ composer create-project roots/sage your-theme-name
-```
-
-To install the latest development version of Sage, add `dev-main` to the end of the command:
-
-```sh
-$ composer create-project roots/sage your-theme-name dev-main
-```
-
-Make sure that you have [Acorn installed](https://docs.roots.io/acorn/2.x/installation/).
+1. `composer install`
+2. `yarn && yarn build`
 
 ## Theme structure
 
@@ -112,26 +83,7 @@ themes/your-theme-name/   # → Root of your Sage based theme
 └── bud.config.js         # → Bud configuration
 ```
 
-## Theme setup
-
-Edit `app/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, and sidebars.
-
-## Theme development
-
-- Run `yarn` from the theme directory to install dependencies
-- Update `bud.config.js` with your local dev URL
-
-### Build commands
+##  Theme Commands
 
 - `yarn dev` — Compile assets when file changes are made, start Browsersync session
 - `yarn build` — Compile assets for production
-
-## Community
-
-Keep track of development and community news.
-
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on the [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)

@@ -1,7 +1,4 @@
 <?php
-
-use App\Core\Init;
-
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -89,11 +86,11 @@ add_theme_support('sage');
 |
 */
 
-if (! function_exists('firestarter') && function_exists('App\\firestarter')) {
-    function firestarter(): Init
+if (! function_exists('firestarter')) {
+    function firestarter(): App\Core\Facade
     {
-        return App\firestarter();
+        return App\Core\Facade::get();
     }
-}
 
-firestarter()->hooks();
+    firestarter();
+}
