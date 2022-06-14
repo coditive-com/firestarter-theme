@@ -56,6 +56,7 @@ Install Sage in your WordPress themes directory and fire the following commands 
 ```sh
 themes/your-theme-name/   # → Root of your Sage based theme
 ├── app/                  # → Theme PHP
+│   ├── Core/             # → Theme core files
 │   ├── Providers/        # → Service providers
 │   ├── View/             # → View models
 │   ├── filters.php       # → Theme filters
@@ -87,3 +88,86 @@ themes/your-theme-name/   # → Root of your Sage based theme
 
 - `yarn dev` — Compile assets when file changes are made, start Browsersync session
 - `yarn build` — Compile assets for production
+
+## Development
+
+### Modules
+
+Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so insead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
+
+```sh
+├── app/
+│   ├── Posts/
+│   ├── ├── Post.php
+│   ├── ├── Posts.php
+```
+
+`App/Posts` is boundary context for `Posts` with `Posts.php` as fasade for internal actions. This facade should be initialized in the `App\Core\Facade` like the here.
+
+```php
+namespace App\Core;
+
+use App\Core\Hooks;
+use App\Core\Singleton;
+use App\Posts\Posts;
+
+class Facade extends Singleton
+{
+    private Hooks $hooks;
+
+    private Posts $posts;
+
+    protected function __construct()
+    {
+        $this->hooks = new Hooks();
+
+        $this->hooks->wrapHooks($this->posts = new Posts()); # <- Context Initialization
+    }
+
+    public function hooks(): Hooks
+    {
+        return $this->hooks;
+    }
+
+    public function posts(): Posts
+    {
+        return $this->posts;
+    }
+}
+```
+
+This facade might be used everywhere you need using `firestarter` function. Example: `firestarter()->posts()->doSth()`.
+
+### Hooks
+
+Coditive theme a custom way for firing the WordPress hooks in the controllers. You can use `@action`, `@filter` and `@shortcode` for initializing hooks in specific class.
+
+```php
+class Example {
+  /**
+   * @action template_redirect
+   */
+  public function sendMail(): void
+  {
+    wp_mail('test@example.com', 'Test Message', 'Test Content');
+  }
+
+  /**
+   * @filter the_title
+   */
+  public function setTitle(string $title): string
+  {
+      return $title;
+  }
+
+  /**
+   * @shortcode title
+   */
+  public function shortcode(): string
+  {
+      return get_the_title();
+  }
+}
+```
+
+But to make it work, there is a need to wrap class initialization in `App\Core\Hooks::wrapHooks` function. So instead of `new Example()` you should use `firestarter()->hooks()->wrapHooks(new Example())`.
