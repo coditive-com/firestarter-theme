@@ -1,0 +1,5 @@
+.-wrapper {
+  width: 100%;
+  padding-left: max(var(--wrapper-padding), 50vw - var(--wrapper) / 2); /* stylelint-disable-line */
+  padding-right: max(var(--wrapper-padding), 50vw - var(--wrapper) / 2); /* stylelint-disable-line */
+}

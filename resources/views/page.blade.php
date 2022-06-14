@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('main-class', '-page')
+
 @section('content')
   @while(have_posts()) @php(the_post())
     @include('partials.page-header')
