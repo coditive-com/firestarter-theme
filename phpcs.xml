@@ -8,17 +8,10 @@
     <exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakIndent" />
   </rule>
 
-  <!-- 2.3 Lines -->
+  <!-- 2.2 Lines -->
   <rule ref="Generic.Files.LineLength">
     <properties>
       <property name="lineLimit" value="140"/>
-    </properties>
-  </rule>
-
-  <!-- 2.4 Indenting -->
-  <rule ref="Generic.WhiteSpace.ScopeIndent">
-    <properties>
-      <property name="indent" value="4" />
     </properties>
   </rule>
 
