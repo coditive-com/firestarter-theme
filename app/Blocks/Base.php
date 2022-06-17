@@ -13,11 +13,12 @@ class Base extends Block
         $this->setStructure([
             'post' => null,
         ]);
+        $this->setGlobal(true);
     }
 
     public function parse(array $fields): array
     {
-        $data = array_replace_recursive($fields, $this->structure);
+        $data = array_replace_recursive($fields, $this->getStructure());
         $data = apply_filters('firestarter_blocks_base_data', $data);
 
         return $data;
