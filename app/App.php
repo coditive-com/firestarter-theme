@@ -4,6 +4,7 @@ namespace App;
 
 use App\Core\Singleton;
 use App\Blocks\Blocks;
+use App\CLI\CLI;
 use App\Posts\Posts;
 
 define('FIRESTARTER_VERSION', '1.0.0');
@@ -22,6 +23,8 @@ class App extends Singleton
 
     protected function __construct()
     {
+        fireclass(CLI::class);
+
         $this->blocks = fireclass(Blocks::class);
         $this->posts = fireclass(Posts::class);
     }

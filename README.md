@@ -161,3 +161,15 @@ class Example {
 ```
 
 But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
+
+### Blocks
+
+Blocks are can be used for building website content...
+
+#### Creation
+
+New block can br created using th efollowing command.
+
+```sh
+wp firestarter block create --name=Testimonial
+```

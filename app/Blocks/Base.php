@@ -13,7 +13,6 @@ class Base extends Block
         $this->setStructure([
             'post' => null,
         ]);
-        $this->setGlobal(true);
     }
 
     public function parse(array $fields): array

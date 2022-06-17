@@ -6,7 +6,7 @@
   @parent
   @include('partials.page-header')
 
-  {{-- {!! firestarter()->blocks()->block('base')->render(); !!} --}}
+  {!! firestarter()->blocks()->block('base')->render(); !!}
 
   @if (have_posts())
     <div class="listing">
