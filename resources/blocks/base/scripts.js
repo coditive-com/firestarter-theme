@@ -1,6 +1,6 @@
 class Block {
   constructor(block) {
-    console.log(block);
+    this.el = block;
   }
 }
 
