@@ -76,7 +76,7 @@ abstract class Block
         return $data;
     }
 
-    final protected function getId(): string
+    final public function getId(): string
     {
         return $this->id;
     }
