@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CLI;
+namespace App\Integrations\CLI;
 
 use WP_CLI;
 use Illuminate\Support\Str;
@@ -23,16 +23,16 @@ class Block
 
             $files = [
                 'source' => [
-                    FIRESTARTER_PATH . "/app/View/Blocks/Base.php",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/base/scripts.js",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/base/styles.scss",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/base/template.blade.php",
+                    APP_PATH . "/app/View/Blocks/Base.php",
+                    APP_RESOURCES_PATH . "/blocks/base/scripts.js",
+                    APP_RESOURCES_PATH . "/blocks/base/styles.scss",
+                    APP_RESOURCES_PATH . "/blocks/base/template.blade.php",
                 ],
                 'destination' => [
-                    FIRESTARTER_PATH . '/app/View/Blocks' . "/{$data['class']}.php",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/scripts.js",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/styles.scss",
-                    FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/template.blade.php",
+                    APP_PATH . '/app/View/Blocks' . "/{$data['class']}.php",
+                    APP_RESOURCES_PATH . "/blocks/{$data['id']}/scripts.js",
+                    APP_RESOURCES_PATH . "/blocks/{$data['id']}/styles.scss",
+                    APP_RESOURCES_PATH . "/blocks/{$data['id']}/template.blade.php",
                 ],
             ];
 
@@ -49,7 +49,7 @@ class Block
                 throw new \Exception('Destination files already exist.');
             }
 
-            mkdir(FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}");
+            mkdir(APP_RESOURCES_PATH . "/blocks/{$data['id']}");
 
             for ($i = 0; $i < count($files['source']); $i++) {
                 copy($files['source'][$i], $files['destination'][$i]);

@@ -3,19 +3,21 @@
 namespace App;
 
 use App\Core\Singleton;
-use App\CLI\CLI;
+use App\Core\Settings;
 use App\Integrations\Integrations;
 use App\Posts\Posts;
 use App\View\Blocks\Blocks;
 use App\View\Blocks\Block;
 
-define('FIRESTARTER_VERSION', '1.0.0');
-define('FIRESTARTER_PATH', dirname(__FILE__, 2));
-define('FIRESTARTER_FILE', FIRESTARTER_PATH . '/functions.php');
-define('FIRESTARTER_ASSETS_PATH', FIRESTARTER_PATH . '/public');
-define('FIRESTARTER_RESOURCES_PATH', FIRESTARTER_PATH . '/resources');
-define('FIRESTARTER_ASSETS_URI', get_stylesheet_directory_uri() . '/public');
-define('FIRESTARTER_RESOURCES_URI', get_stylesheet_directory_uri() . '/resources');
+define('APP_NAME', 'Firestarter');
+define('APP_SLUG', 'firestarter');
+define('APP_VERSION', '1.0.0');
+define('APP_PATH', dirname(__FILE__, 2));
+define('APP_FILE', APP_PATH . '/functions.php');
+define('APP_ASSETS_PATH', APP_PATH . '/public');
+define('APP_RESOURCES_PATH', APP_PATH . '/resources');
+define('APP_ASSETS_URI', get_stylesheet_directory_uri() . '/public');
+define('APP_RESOURCES_URI', get_stylesheet_directory_uri() . '/resources');
 
 class App extends Singleton
 {
@@ -27,11 +29,10 @@ class App extends Singleton
 
     protected function __construct()
     {
-        fireclass(CLI::class);
-
         $this->blocks = fireclass(Blocks::class);
         $this->integrations = fireclass(Integrations::class);
         $this->posts = fireclass(Posts::class);
+        $this->settings = fireclass(Settings::class);
     }
 
     public function blocks(): Blocks
@@ -52,5 +53,10 @@ class App extends Singleton
     public function posts(): Posts
     {
         return $this->posts;
+    }
+
+    public function settings(): Settings
+    {
+        return $this->settings;
     }
 }

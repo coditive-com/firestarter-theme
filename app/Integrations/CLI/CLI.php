@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CLI;
+namespace App\Integrations\CLI;
 
 use WP_CLI;
-use App\CLI\Block;
+use App\Integrations\CLI\Block;
 
 class CLI
 {

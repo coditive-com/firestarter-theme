@@ -103,7 +103,7 @@ abstract class Block
 
     final public function getTemplate(): string
     {
-        return FIRESTARTER_RESOURCES_PATH . sprintf('/blocks/%s/template.blade.php', $this->getId());
+        return APP_RESOURCES_PATH . sprintf('/blocks/%s/template.blade.php', $this->getId());
     }
 
     final protected function setTemplate(string $template): void
