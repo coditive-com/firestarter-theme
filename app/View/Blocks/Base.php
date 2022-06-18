@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Blocks;
+namespace App\View\Blocks;
 
-use App\Blocks\Block;
+use App\View\Blocks\Block;
 
 class Base extends Block
 {

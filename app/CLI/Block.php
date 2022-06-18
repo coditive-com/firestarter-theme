@@ -23,13 +23,13 @@ class Block
 
             $files = [
                 'source' => [
-                    FIRESTARTER_PATH . "/app/Blocks/Base.php",
+                    FIRESTARTER_PATH . "/app/View/Blocks/Base.php",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/base/scripts.js",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/base/styles.scss",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/base/template.blade.php",
                 ],
                 'destination' => [
-                    FIRESTARTER_PATH . '/app/Blocks' . "/{$data['class']}.php",
+                    FIRESTARTER_PATH . '/app/View/Blocks' . "/{$data['class']}.php",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/scripts.js",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/styles.scss",
                     FIRESTARTER_RESOURCES_PATH . "/blocks/{$data['id']}/template.blade.php",

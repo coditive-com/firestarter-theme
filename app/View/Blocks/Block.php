@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Blocks;
+namespace App\View\Blocks;
 
 use function Roots\bundle;
 

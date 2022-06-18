@@ -3,11 +3,11 @@
 namespace App;
 
 use App\Core\Singleton;
-use App\Blocks\Blocks;
-use App\Blocks\Block;
 use App\CLI\CLI;
 use App\Integrations\Integrations;
 use App\Posts\Posts;
+use App\View\Blocks\Blocks;
+use App\View\Blocks\Block;
 
 define('FIRESTARTER_VERSION', '1.0.0');
 define('FIRESTARTER_PATH', dirname(__FILE__, 2));

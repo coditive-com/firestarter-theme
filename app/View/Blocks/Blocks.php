@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Blocks;
+namespace App\View\Blocks;
 
-use App\Blocks\Block;
+use App\View\Blocks\Block;
 
 class Blocks
 {
@@ -13,9 +13,9 @@ class Blocks
      */
     public function init(): void
     {
-        $blocks = array_diff(scandir(FIRESTARTER_PATH . '/app/Blocks'), ['..', '.', 'Block.php', 'Blocks.php', 'Base.php']);
+        $blocks = array_diff(scandir(FIRESTARTER_PATH . '/app/View/Blocks'), ['..', '.', 'Block.php', 'Blocks.php', 'Base.php']);
         foreach ($blocks as $name) {
-            $block = fireclass('App\Blocks\\' . str_replace('.php', '', $name));
+            $block = fireclass('App\View\Blocks\\' . str_replace('.php', '', $name));
             $this->blocks[$block->getId()] = $block;
         }
     }
