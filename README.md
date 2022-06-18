@@ -168,8 +168,14 @@ Blocks are can be used for building website content...
 
 #### Creation
 
-New block can br created using th efollowing command.
+New block can br created using the following command.
 
 ```sh
 wp firestarter block create --name=Testimonial
+```
+
+#### Using
+
+```php
+{!! firestarter()->block('testimonial')->render(); !!}
 ```

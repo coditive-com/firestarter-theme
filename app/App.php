@@ -4,7 +4,9 @@ namespace App;
 
 use App\Core\Singleton;
 use App\Blocks\Blocks;
+use App\Blocks\Block;
 use App\CLI\CLI;
+use App\Integrations\Integrations;
 use App\Posts\Posts;
 
 define('FIRESTARTER_VERSION', '1.0.0');
@@ -19,6 +21,8 @@ class App extends Singleton
 {
     private Blocks $blocks;
 
+    private Integrations $integrations;
+
     private Posts $posts;
 
     protected function __construct()
@@ -26,12 +30,23 @@ class App extends Singleton
         fireclass(CLI::class);
 
         $this->blocks = fireclass(Blocks::class);
+        $this->integrations = fireclass(Integrations::class);
         $this->posts = fireclass(Posts::class);
     }
 
     public function blocks(): Blocks
     {
         return $this->blocks;
+    }
+
+    public function block(string $id): ?Block
+    {
+        return $this->blocks->get($id);
+    }
+
+    public function integrations(): Integrations
+    {
+        return $this->integrations;
     }
 
     public function posts(): Posts

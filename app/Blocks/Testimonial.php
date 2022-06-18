@@ -4,19 +4,21 @@ namespace App\Blocks;
 
 use App\Blocks\Block;
 
-class Base extends Block
+class Testimonial extends Block
 {
     public function __construct()
     {
-        $this->setId('base');
-        $this->setName('Base');
+        $this->setId('testimonial');
+        $this->setName('Testimonial');
         $this->setStructure([]);
     }
 
     public function parse(array $data): array
     {
         $data = array_replace_recursive($data, $this->getStructure());
-        $data = apply_filters('firestarter_block_base_data', $data);
+        $data = apply_filters('firestarter_block_testimonial_data', $data);
+
+        dump($data);
 
         return $data;
     }

@@ -17,26 +17,6 @@ abstract class Block
     private bool $global = false;
 
     /**
-     * @_action acf/init
-     */
-    // public function init(): void
-    // {
-    //     if (! function_exists('acf_register_block_type')) {
-    //         return;
-    //     }
-
-    //     if (! $this->hasId() || ! $this->hasName() || ! $this->hasTemplate()) {
-    //         return;
-    //     }
-
-    //     acf_register_block_type([
-    //         'name'  => $this->getId(),
-    //         'title' => $this->getName(),
-    //         'render_callback' => [$this, 'render'],
-    //     ]);
-    // }
-
-    /**
      * @action init
      */
     final public function init(): void
@@ -49,8 +29,8 @@ abstract class Block
     final public function render(array $data = []): void
     {
         $this->assets();
-        $data = isset($data['render_callback']) ? get_fields() : $data;
-        echo view($this->getTemplate(), $this->parse($data['data'] ?? []))->render();
+        $data = apply_filters('firestarter_block_data', $data, $this);
+        echo view($this->getTemplate(), $this->parse($data))->render();
     }
 
     final public function get(array $data = []): string
@@ -86,12 +66,12 @@ abstract class Block
         $this->id = $id;
     }
 
-    final protected function hasId(): bool
+    final public function hasId(): bool
     {
         return ! empty($this->getId());
     }
 
-    final protected function getName(): string
+    final public function getName(): string
     {
         return $this->name;
     }
@@ -101,7 +81,7 @@ abstract class Block
         $this->name = $id;
     }
 
-    final protected function hasName(): bool
+    final public function hasName(): bool
     {
         return ! empty($this->getName());
     }
@@ -121,7 +101,7 @@ abstract class Block
         return ! empty($this->getPath());
     }
 
-    final protected function getTemplate(): string
+    final public function getTemplate(): string
     {
         return FIRESTARTER_RESOURCES_PATH . sprintf('/blocks/%s/template.blade.php', $this->getId());
     }
@@ -131,7 +111,7 @@ abstract class Block
         $this->template = $template;
     }
 
-    final protected function hasTemplate(): bool
+    final public function hasTemplate(): bool
     {
         return ! empty($this->getTemplate());
     }
