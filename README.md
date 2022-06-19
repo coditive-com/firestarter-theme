@@ -171,7 +171,7 @@ Blocks can be used for building website content sections. The main advantage ove
 ```sh
 ├── app/
 │   ├── View/
-│   ├── |── Blocks/
+│   ├── ├── Blocks/
 │   ├── ├── ├── Testimonial.php
 ├── resources/
 │   ├── blocks/
