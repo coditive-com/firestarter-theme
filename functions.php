@@ -84,8 +84,8 @@ add_theme_support('sage');
 |--------------------------------------------------------------------------
 */
 
-if (! function_exists('firehooks')) {
-    function firehooks(): App\Core\Hooks
+if (! function_exists('fshooks')) {
+    function fshooks(): App\Core\Hooks
     {
         return App\Core\Hooks::get();
     }
@@ -96,7 +96,7 @@ if (! function_exists('fsclass')) {
     {
         $class = apply_filters('fs_class_name', $class);
 
-        return firehooks()->wrapHooks(new $class(...$params));
+        return fshooks()->wrapHooks(new $class(...$params));
     }
 }
 
