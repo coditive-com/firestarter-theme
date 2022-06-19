@@ -2,20 +2,19 @@
 
 namespace App\Core;
 
-class Settings
+abstract class Settings
 {
+    public const DEFAULT = 'App\Integrations\WP\Settings';
+
+    abstract public function get(string $key);
+
+    abstract public function addPage(): void;
+
     /**
      * @action admin_menu
      */
-    public function addPage(): void
+    public function renderPage(): void
     {
-        add_menu_page(APP_NAME, APP_NAME, 'manage_options', APP_SLUG, function () {
-            ?>
-                <div class="wrap">
-                    <h1><?php echo APP_NAME ?> Settings</h1>
-                    <p>Default</p>
-                </div>
-            <?php
-        }, 'dashicons-lightbulb');
+        $this->addPage();
     }
 }

@@ -9,7 +9,18 @@ class ACF
 {
     public function __construct()
     {
-        fireclass(Blocks::class);
-        fireclass(Settings::class);
+        fsclass(Blocks::class);
+    }
+
+    /**
+     * @filter fs_class_name
+     */
+    public function setSettingsClass(string $class): string
+    {
+        if ($class === 'App\Integrations\WP\Settings') {
+            return Settings::class;
+        }
+
+        return $class;
     }
 }

@@ -91,18 +91,20 @@ if (! function_exists('firehooks')) {
     }
 }
 
-if (! function_exists('fireclass')) {
-    function fireclass(string $class, array $params = []): object
+if (! function_exists('fsclass')) {
+    function fsclass(string $class, array $params = []): object
     {
+        $class = apply_filters('fs_class_name', $class);
+
         return firehooks()->wrapHooks(new $class(...$params));
     }
 }
 
-if (! function_exists('firestarter')) {
-    function firestarter(): App\App
+if (! function_exists('fs')) {
+    function fs(): App\App
     {
         return App\App::get();
     }
 }
 
-firestarter();
+fs();

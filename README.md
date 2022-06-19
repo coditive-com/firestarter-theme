@@ -116,7 +116,7 @@ class App extends Singleton
 
     protected function __construct()
     {
-        $this->posts = fireclass(Posts::class); # <- Context Initialization
+        $this->posts = fsclass(Posts::class); # <- Context Initialization
     }
 
     public function posts(): Posts
@@ -126,7 +126,7 @@ class App extends Singleton
 }
 ```
 
-This facade might be used everywhere you need using `firestarter` function. Example: `firestarter()->posts()->doSth()`.
+This facade might be used everywhere you need using `fs` function. Example: `fs()->posts()->doSth()`.
 
 ### Hooks
 
@@ -160,15 +160,30 @@ class Example {
 }
 ```
 
-But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
+But to make it work, there is a need to initialize instance using `fireclass` function: `fsclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
 
 ### Blocks
 
-Blocks are can be used for building website content...
+Blocks can be used for building website content sections. The main advantage over `Sage` components is that assets are loaded on demand. So when specific block is not used on the page, its assets are not loaded at all. `Sage` components loads all the assets in the main `script.js` and `style.js` files, so assets are loaded even when not needed.
+
+#### Structure
+
+```sh
+├── app/
+│   ├── View/
+│   ├── |── Blocks/
+│   ├── ├── ├── Testimonial.php
+├── resources/
+│   ├── blocks/
+│   ├── ├── testomonial/
+│   ├── ├── ├── scripts.js
+│   ├── ├── ├── styles.scss
+│   ├── ├── ├── template.blade.php
+```
 
 #### Creation
 
-New block can br created using the following command.
+New block can be created using the following command. That's all. All the block controllers will be initialized automatically.
 
 ```sh
 wp firestarter block create --name=Testimonial
@@ -177,5 +192,25 @@ wp firestarter block create --name=Testimonial
 #### Using
 
 ```php
-{!! firestarter()->block('testimonial')->render(); !!}
+{!! fs()->block('testimonial')->render(); !!}
+```
+
+### Settings
+
+Firestarter implements settings page...
+
+### Integrations
+
+#### ACF
+
+##### Blocks
+
+Firestarter adds support for [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/). So you can use previously described blocks architecture with ACF without any additional work.
+
+##### Settings
+
+Firestarter implements support for [ACF Options](https://www.advancedcustomfields.com/resources/options-page/).
+
+```php
+fs()->settings()->get('site_logo')
 ```

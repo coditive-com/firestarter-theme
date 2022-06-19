@@ -6,7 +6,10 @@
   @parent
   @include('partials.page-header')
 
-  {!! firestarter()->block('testimonial')->render(); !!}
+  {!! fs()->block('testimonial')->render(); !!}
+
+  @dump(fs()->settings()->get('site_logo'))
+  @dump(fs()->settings()->get('site_logo_2x'))
 
   @if (have_posts())
     <div class="listing">

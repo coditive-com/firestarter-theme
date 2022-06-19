@@ -4,8 +4,8 @@ namespace App;
 
 use App\Core\Singleton;
 use App\Core\Settings;
+use App\Core\Setup;
 use App\Integrations\Integrations;
-use App\Posts\Posts;
 use App\View\Blocks\Blocks;
 use App\View\Blocks\Block;
 
@@ -25,14 +25,16 @@ class App extends Singleton
 
     private Integrations $integrations;
 
-    private Posts $posts;
+    private Settings $settings;
+
+    private Setup $setup;
 
     protected function __construct()
     {
-        $this->blocks = fireclass(Blocks::class);
-        $this->integrations = fireclass(Integrations::class);
-        $this->posts = fireclass(Posts::class);
-        $this->settings = fireclass(Settings::class);
+        $this->blocks = fsclass(Blocks::class);
+        $this->integrations = fsclass(Integrations::class);
+        $this->settings = fsclass(Settings::DEFAULT);
+        $this->setup = fsclass(Setup::class);
     }
 
     public function blocks(): Blocks
@@ -50,13 +52,13 @@ class App extends Singleton
         return $this->integrations;
     }
 
-    public function posts(): Posts
-    {
-        return $this->posts;
-    }
-
     public function settings(): Settings
     {
         return $this->settings;
+    }
+
+    public function setup(): Setup
+    {
+        return $this->setup;
     }
 }
