@@ -207,6 +207,14 @@ Firestarter implements settings page...
 
 #### ACF
 
+##### Local JSON
+
+Theme by default uses [Local JSON](https://www.advancedcustomfields.com/resources/local-json/) feature and stores fields sonfiguration in `/resources/fields` directory. You can disable this feature with the following `wp-config.php` entry.
+
+```php
+define('FIRESTARTER_INTEGRATIONS_ACF_LOCAL_JSON', false);
+```
+
 ##### Blocks
 
 Firestarter adds support for [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/). So you can use previously described blocks architecture with ACF without any additional work.
