@@ -8,7 +8,7 @@ class Base {
   constructor() {
     this.blocks = document.querySelectorAll('[data-block="base"]');
 
-    if (0 !== this.blocks.length) {
+    if (this.blocks.length) {
       this.blocks.forEach(block => {
         new Block(block);
       });

@@ -97,7 +97,7 @@ Firestarter uses PHP types as much as possible...
 
 ### Modules
 
-Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so insead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
+Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so instead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
 
 ```sh
 ├── app/
