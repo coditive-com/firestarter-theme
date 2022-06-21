@@ -9,11 +9,11 @@ class ACF
 {
     public function __construct()
     {
-        fsclass(Blocks::class);
+        fireclass(Blocks::class);
     }
 
     /**
-     * @filter fs_class_name
+     * @filter firestarter_class_name
      */
     public function setSettingsClass(string $class): string
     {

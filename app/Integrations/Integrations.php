@@ -10,11 +10,11 @@ class Integrations
 {
     public function __construct()
     {
-        fsclass(CLI::class);
-        fsclass(WP::class);
+        fireclass(CLI::class);
+        fireclass(WP::class);
 
         if (in_array('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-            fsclass(ACF::class);
+            fireclass(ACF::class);
         }
     }
 }

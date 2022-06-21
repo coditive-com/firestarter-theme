@@ -31,10 +31,10 @@ class App extends Singleton
 
     protected function __construct()
     {
-        $this->blocks = fsclass(Blocks::class);
-        $this->integrations = fsclass(Integrations::class);
-        $this->settings = fsclass(Settings::DEFAULT);
-        $this->setup = fsclass(Setup::class);
+        $this->blocks = fireclass(Blocks::class);
+        $this->integrations = fireclass(Integrations::class);
+        $this->settings = fireclass(Settings::DEFAULT);
+        $this->setup = fireclass(Setup::class);
     }
 
     public function blocks(): Blocks

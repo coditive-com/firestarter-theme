@@ -13,7 +13,7 @@ class Blocks
             return;
         }
 
-        foreach (fs()->blocks()->getAll() as $block) {
+        foreach (firestarter()->blocks()->getAll() as $block) {
             acf_register_block_type([
                 'name'  => $block->getId(),
                 'title' => $block->getName(),
@@ -23,7 +23,7 @@ class Blocks
     }
 
     /**
-     * @filter fs_block_data
+     * @filter firestarter_block_data
      */
     public function setData(array $data): array
     {

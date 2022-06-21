@@ -84,27 +84,27 @@ add_theme_support('sage');
 |--------------------------------------------------------------------------
 */
 
-if (! function_exists('fshooks')) {
-    function fshooks(): App\Core\Hooks
+if (! function_exists('firehooks')) {
+    function firehooks(): App\Core\Hooks
     {
         return App\Core\Hooks::get();
     }
 }
 
-if (! function_exists('fsclass')) {
-    function fsclass(string $class, array $params = []): object
+if (! function_exists('fireclass')) {
+    function fireclass(string $class, array $params = []): object
     {
-        $class = apply_filters('fs_class_name', $class);
+        $class = apply_filters('firestarter_class_name', $class);
 
-        return fshooks()->wrapHooks(new $class(...$params));
+        return firehooks()->wrapHooks(new $class(...$params));
     }
 }
 
-if (! function_exists('fs')) {
-    function fs(): App\App
+if (! function_exists('firestarter')) {
+    function firestarter(): App\App
     {
         return App\App::get();
     }
 }
 
-fs();
+firestarter();

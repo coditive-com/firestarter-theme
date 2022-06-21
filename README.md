@@ -120,7 +120,7 @@ class App extends Singleton
 
     protected function __construct()
     {
-        $this->posts = fsclass(Posts::class); # <- Context Initialization
+        $this->posts = fireclass(Posts::class); # <- Context Initialization
     }
 
     public function posts(): Posts
@@ -130,7 +130,7 @@ class App extends Singleton
 }
 ```
 
-This facade might be used everywhere you need using `fs` function. Example: `fs()->posts()->doSth()`.
+This facade might be used everywhere you need using `firestarter` function. Example: `firestarter()->posts()->doSth()`.
 
 ### Hooks
 
@@ -164,7 +164,7 @@ class Example {
 }
 ```
 
-But to make it work, there is a need to initialize instance using `fireclass` function: `fsclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
+But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
 
 ### Blocks
 
@@ -196,7 +196,7 @@ wp firestarter block create --name=Testimonial
 #### Using
 
 ```php
-{!! fs()->block('testimonial')->render(); !!}
+{!! firestarter()->block('testimonial')->render(); !!}
 ```
 
 ### Settings
@@ -216,5 +216,5 @@ Firestarter adds support for [ACF Blocks](https://www.advancedcustomfields.com/r
 Firestarter implements support for [ACF Options](https://www.advancedcustomfields.com/resources/options-page/).
 
 ```php
-fs()->settings()->get('site_logo')
+firestarter()->settings()->get('site_logo')
 ```

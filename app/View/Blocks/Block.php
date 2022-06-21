@@ -29,7 +29,7 @@ abstract class Block
     final public function render(array $data = []): void
     {
         $this->assets();
-        $data = apply_filters('fs_block_data', $data, $this);
+        $data = apply_filters('firestarter_block_data', $data, $this);
         echo view($this->getTemplate(), $this->parse($data))->render();
     }
 
