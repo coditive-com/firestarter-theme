@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,5 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

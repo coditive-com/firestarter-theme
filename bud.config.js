@@ -1,9 +1,22 @@
+const fs = require('fs');
+
 /**
  * @typedef {import('@roots/bud').Bud} bud
  *
  * @param {bud} app
  */
 module.exports = async (app) => {
+  /**
+   * Blocks entrypoints
+   */
+  const blocks = fs.readdirSync(app.path('@src/blocks')).filter(el => "." !== el.charAt(0));
+  blocks.forEach(name => {
+    app.entry(`block-${name}`, [
+      app.path(`@src/blocks/${name}/styles`),
+      app.path(`@src/blocks/${name}/scripts`)
+    ]);
+  });
+
   app
     /**
      * Application entrypoints

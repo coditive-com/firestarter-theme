@@ -91,9 +91,13 @@ themes/your-theme-name/   # → Root of your Sage based theme
 
 ## Development
 
+### Types
+
+Firestarter uses PHP types as much as possible...
+
 ### Modules
 
-Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so insead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
+Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so instead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
 
 ```sh
 ├── app/
@@ -161,3 +165,56 @@ class Example {
 ```
 
 But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
+
+### Blocks
+
+Blocks can be used for building website content sections. The main advantage over `Sage` components is that assets are loaded on demand. So when specific block is not used on the page, its assets are not loaded at all. `Sage` components loads all the assets in the main `script.js` and `style.js` files, so assets are loaded even when not needed.
+
+#### Structure
+
+```sh
+├── app/
+│   ├── View/
+│   ├── ├── Blocks/
+│   ├── ├── ├── Testimonial.php
+├── resources/
+│   ├── blocks/
+│   ├── ├── testomonial/
+│   ├── ├── ├── scripts.js
+│   ├── ├── ├── styles.scss
+│   ├── ├── ├── template.blade.php
+```
+
+#### Creation
+
+New block can be created using the following command. That's all. All the block controllers will be initialized automatically.
+
+```sh
+wp firestarter block create --name=Testimonial
+```
+
+#### Using
+
+```php
+{!! firestarter()->block('testimonial')->render(); !!}
+```
+
+### Settings
+
+Firestarter implements settings page...
+
+### Integrations
+
+#### ACF
+
+##### Blocks
+
+Firestarter adds support for [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/). So you can use previously described blocks architecture with ACF without any additional work.
+
+##### Settings
+
+Firestarter implements support for [ACF Options](https://www.advancedcustomfields.com/resources/options-page/).
+
+```php
+firestarter()->settings()->get('site_logo')
+```

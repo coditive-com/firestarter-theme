@@ -94,6 +94,8 @@ if (! function_exists('firehooks')) {
 if (! function_exists('fireclass')) {
     function fireclass(string $class, array $params = []): object
     {
+        $class = apply_filters('firestarter_class_name', $class);
+
         return firehooks()->wrapHooks(new $class(...$params));
     }
 }
