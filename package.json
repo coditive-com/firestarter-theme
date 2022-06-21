@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@roots/bud": "5.8.7",
+    "@roots/bud-eslint": "^6.0.0",
     "@roots/bud-postcss": "^5.8.7",
     "@roots/bud-sass": "^5.8.7",
     "@roots/sage": "5.8.7",
