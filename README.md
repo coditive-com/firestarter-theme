@@ -209,7 +209,7 @@ Firestarter implements settings page...
 
 ##### Local JSON
 
-Theme by default uses [Local JSON]() feature and stores fields sonfiguration in `/resources/fields` directory. You can disable this feature with the following `wp-config.php` entry.
+Theme by default uses [Local JSON](https://www.advancedcustomfields.com/resources/local-json/) feature and stores fields sonfiguration in `/resources/fields` directory. You can disable this feature with the following `wp-config.php` entry.
 
 ```php
 define('FIRESTARTER_INTEGRATIONS_ACF_LOCAL_JSON', false);
