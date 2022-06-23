@@ -30,22 +30,18 @@ class App extends Composer
 
     public function siteLogo(): string
     {
-        if (function_exists('get_field')) {
-            $logo = get_field('site', 'option')['logo'];
-            $logo2x = get_field('site', 'option')['logo_2x'];
+        $logo = firestarter()->settings()->get('site_logo');
+        $logo2x = firestarter()->settings()->get('site_logo_2x');
 
-            if (empty($logo)) {
-                return get_bloginfo('name');
-            }
-
-            $srcset = '';
-            if (! empty($logo) && ! empty($logo2x)) {
-                $srcset = 'srcset="' . wp_get_attachment_image_url($logo, 'full') . ' 1x, ' . wp_get_attachment_image_url($logo2x, 'full') . ' 2x"';
-            }
-
-            return '<img src="' . wp_get_attachment_image_url($logo, 'full') . '" ' . $srcset . ' />';
+        if (empty($logo)) {
+            return get_bloginfo('name');
         }
 
-        return get_bloginfo('name');
+        $srcset = '';
+        if (! empty($logo) && ! empty($logo2x)) {
+            $srcset = 'srcset="' . wp_get_attachment_image_url($logo, 'full') . ' 1x, ' . wp_get_attachment_image_url($logo2x, 'full') . ' 2x"';
+        }
+
+        return '<img src="' . wp_get_attachment_image_url($logo, 'full') . '" ' . $srcset . ' />';
     }
 }
