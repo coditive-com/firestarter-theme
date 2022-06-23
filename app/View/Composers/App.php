@@ -11,7 +11,7 @@ class App extends Composer
      *
      * @var array
      */
-  protected static $views = [
+    protected static $views = [
         '*',
     ];
 
@@ -20,32 +20,28 @@ class App extends Composer
      *
      * @return array
      */
-  public function with()
-  {
-      return [
-          'siteLogo' => $this->siteLogo(),
-      ];
-  }
-
-
-  public function siteLogo(): string
-  {
-    if (function_exists('get_field')) {
-      $logoStandard = get_field('s_logo', 'option');
-      $logoRetina = get_field('s_logo_retina', 'option');
-
-      if (empty($logoStandard)) {
-        return get_bloginfo('name');
-      }
-
-      $srcset = '';
-      if (! empty($logoStandard) && ! empty($logoRetina)) {
-        $srcset = 'srcset="' . $logoStandard . ' 1x, ' . $logoRetina . ' 2x"';
-      }
-
-      return '<img src="' . $logoStandard . '" ' . $srcset . ' />';
+    public function with()
+    {
+        return [
+            'siteLogo' => $this->siteLogo(),
+        ];
     }
 
-    return get_bloginfo('name');
-  }
+
+    public function siteLogo(): string
+    {
+        $logo = firestarter()->settings()->get('site_logo');
+        $logo2x = firestarter()->settings()->get('site_logo_2x');
+
+        if (empty($logo)) {
+            return get_bloginfo('name');
+        }
+
+        $srcset = '';
+        if (! empty($logo) && ! empty($logo2x)) {
+            $srcset = 'srcset="' . wp_get_attachment_image_url($logo, 'full') . ' 1x, ' . wp_get_attachment_image_url($logo2x, 'full') . ' 2x"';
+        }
+
+        return '<img src="' . wp_get_attachment_image_url($logo, 'full') . '" ' . $srcset . ' />';
+    }
 }
