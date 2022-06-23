@@ -24,9 +24,9 @@ class App extends Composer
     {
         return [
             'siteLogo' => $this->siteLogo(),
+            'siteCopyrights' => $this->siteCopyrights(),
         ];
     }
-
 
     public function siteLogo(): string
     {
@@ -43,5 +43,12 @@ class App extends Composer
         }
 
         return '<img src="' . wp_get_attachment_image_url($logo, 'full') . '" ' . $srcset . ' />';
+    }
+
+    public function siteCopyrights(): string
+    {
+        $copyrights = firestarter()->settings()->get('site_copyrights');
+
+        return $copyrights ?? '';
     }
 }
