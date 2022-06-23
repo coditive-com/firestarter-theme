@@ -24,6 +24,7 @@ class App extends Composer
     {
         return [
             'siteLogo' => $this->siteLogo(),
+            'siteCopyrights' => $this->siteCopyrights(),
         ];
     }
 
@@ -46,10 +47,8 @@ class App extends Composer
 
     public function siteCopyrights(): string
     {
-        if (! empty($copyrights = firestarter()->settings()->get('site_copyrights'))) {
-            return $copyrights;
-        }
+        $copyrights = firestarter()->settings()->get('site_copyrights');
 
-        return '';
+        return $copyrights ?? '';
     }
 }
