@@ -1,3 +1,3 @@
-<a href="{!! $href ?? '' !!}" class="{!! $class !!} button">
-  {!! $text ?? '' !!}
+<a href="{!! $href !!}" class="{!! $class !!} button" target="{{ $target }}">
+  {!! $text !!}
 </a>
