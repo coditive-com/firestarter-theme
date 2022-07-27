@@ -31,6 +31,10 @@ class Setup
                         height: 100px;
                         margin-top: 100px;
                     }
+
+                    .login.interim-login #login h1 a {
+                        margin-top: 0;
+                    }
                 </style>
             <?php
         }
