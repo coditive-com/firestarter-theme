@@ -20,35 +20,34 @@ module.exports = async (app) => {
   app
     /**
      * Application entrypoints
-     *
-     * Paths are relative to your resources directory
      */
     .entry({
-      app: ['@scripts/app', '@styles/app'],
-      editor: ['@scripts/editor', '@styles/editor'],
+      app: ["@scripts/app", "@styles/app"],
+      editor: ["@scripts/editor", "@styles/editor"],
     })
 
     /**
-     * These files should be processed as part of the build
-     * even if they are not explicitly imported in application assets.
+     * Directory contents to be included in the compilation
      */
-    .assets('images')
+    .assets(["images", "svg"])
 
     /**
-     * These files will trigger a full page reload
-     * when modified.
+     * Matched files trigger a page reload when modified
      */
-    .watch('resources/views/**/*', 'app/**/*')
+    .watch(["resources/views/**/*", "app/**/*"])
 
     /**
-     * Target URL to be proxied by the dev server.
-     *
-     * This should be the URL you use to visit your local development server.
+     * Proxy origin (`WP_HOME`)
      */
-    .proxy('http://firestarter.test')
+    .proxy("http://firestarter.test")
 
     /**
-     * Development URL to be used in the browser.
+     * Development origin
      */
-    .serve('http://0.0.0.0:3000');
+    .serve("http://0.0.0.0:3000")
+
+    /**
+     * URI of the `public` directory
+     */
+    .setPublicPath("/app/themes/sage/public/");
 };
