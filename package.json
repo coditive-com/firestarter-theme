@@ -2,10 +2,10 @@
   "name": "sage",
   "private": true,
   "browserslist": [
-    "extends @wordpress/browserslist-config"
+    "extends @roots/browserslist-config/current"
   ],
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.1.0"
   },
   "scripts": {
     "dev": "bud dev",
@@ -18,13 +18,13 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "5.8.7",
-    "@roots/bud-eslint": "^6.0.0",
-    "@roots/bud-postcss": "^5.8.7",
-    "@roots/bud-sass": "^5.8.7",
-    "@roots/sage": "5.8.7",
+    "@roots/bud": "6.3.5",
+    "@roots/bud-eslint": "^6.3.5",
+    "@roots/bud-postcss": "^6.3.5",
+    "@roots/bud-sass": "^6.3.5",
+    "@roots/sage": "6.3.5",
     "stylelint": "^14.0.0",
-    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-order": "^5.0.0"
   }
 }

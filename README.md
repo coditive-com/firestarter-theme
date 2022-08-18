@@ -226,3 +226,5 @@ Firestarter implements support for [ACF Options](https://www.advancedcustomfield
 ```php
 firestarter()->settings()->get('site_logo')
 ```
+
+TG: We should add here more information about this functionality, for me, it wasn't clear why I should use it instead of the "classic" get_field function.

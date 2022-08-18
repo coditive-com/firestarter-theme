@@ -40,14 +40,14 @@
   },
   "require": {
     "php": "^7.4|^8.0",
-    "roots/acorn": "^2.0"
+    "log1x/sage-svg": "^1.1",
+    "roots/acorn": "^2.1"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.6"
+    "squizlabs/php_codesniffer": "3.7.1"
   },
   "suggest": {
-    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
-    "log1x/sage-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
+    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0)."
   },
   "config": {
     "optimize-autoloader": true,
@@ -69,4 +69,3 @@
     }
   }
 }
-

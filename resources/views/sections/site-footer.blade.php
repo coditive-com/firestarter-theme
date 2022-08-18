@@ -3,7 +3,9 @@
     @php(dynamic_sidebar('sidebar-footer'))
   </div>
 
-  <p class="site-footer__copyrights">
-    <!-- TODO: Add copyrights text from ACF options -->
-  </p>
+  @if (! empty($siteCopyrights)) 
+    <p class="site-footer__copyrights">
+      {!! $siteCopyrights !!}
+    </p>
+  @endif
 </footer>
