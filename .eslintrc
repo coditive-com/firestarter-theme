@@ -1,0 +1,109 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    /**
+     * @see https://eslint.org/docs/latest/rules/#possible-problems
+     */
+    "array-callback-return": ["error"],
+    "no-constructor-return": ["error"],
+    "no-duplicate-imports": ["error"],
+    "no-template-curly-in-string": ["error"],
+    "no-unmodified-loop-condition": ["error"],
+    "no-unreachable-loop": ["error"],
+    "no-unused-private-class-members": ["error"],
+    /**
+     * @see https://eslint.org/docs/latest/rules/#suggestions
+     */
+    "block-scoped-var": ["error"],
+    "camelcase": ["error"],
+    "consistent-return":  ["error"],
+    "curly":  ["error"],
+    "default-case-last": ["error"],
+    "default-param-last": ["error"],
+    "dot-notation": ["error"],
+    "eqeqeq": ["error"],
+    "init-declarations": ["error"],
+    "max-classes-per-file": ["error", 1],
+    "max-depth": ["error", 4],
+    "max-lines": ["error", 1000],
+    "no-else-return": ["error"],
+    "no-empty": ["error"],
+    "no-empty-function": ["error"],
+    "no-floating-decimal": ["error"],
+    "no-multi-assign": ["error"],
+    "no-param-reassign": ["error"],
+    "no-var": ["error"],
+    "prefer-const": ["error"],
+    "prefer-spread": ["error"],
+    "prefer-template": ["error"],
+    "require-await": ["error"],
+    /**
+     * @see https://eslint.org/docs/latest/rules/#layout--formatting
+     */
+    "array-bracket-spacing": ["error"],
+    "arrow-parens": ["error"],
+    "arrow-spacing": ["error"],
+    "block-spacing": ["error"],
+    "brace-style": ["error"],
+    "comma-dangle": ["error", "always-multiline"],
+    "comma-spacing": ["error"],
+    "comma-style": ["error"],
+    "computed-property-spacing": ["error"],
+    "dot-location": ["error", "property"],
+    "eol-last": ["error"],
+    "func-call-spacing": ["error"],
+    "function-call-argument-newline": ["error", "never"],
+    "function-paren-newline": ["error", "never"],
+    "implicit-arrow-linebreak": ["error"],
+    "indent": ["error", 2],
+    "key-spacing": ["error"],
+    "keyword-spacing": ["error"],
+    "lines-between-class-members": ["error"],
+    "max-len": ["error", {
+      "code": 125,
+      "ignoreComments": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreUrls": true
+    }],
+    "new-parens": ["error"],
+    "no-multi-spaces": ["error"],
+    "no-multiple-empty-lines": ["error", {"max": 1}],
+    "no-trailing-spaces": ["error"],
+    "no-whitespace-before-property": ["error"],
+    "object-curly-spacing": ["error", "always"],
+    "operator-linebreak": ["error", "before"],
+    "padded-blocks": ["error", "never"],
+    "padding-line-between-statements": ["error", {
+      "blankLine": "always",
+      "prev": "*",
+      "next": "return"
+    }],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "semi-spacing": ["error"],
+    "space-before-blocks": ["error"],
+    "space-before-function-paren": ["error", "never"],
+    "space-in-parens": ["error", "never"],
+    "space-infix-ops": ["error"],
+    "space-unary-ops": [2, {
+      "words": true,
+      "nonwords": true
+    }],
+    "switch-colon-spacing": ["error"],
+    "template-curly-spacing": ["error"]
+  }
+}
