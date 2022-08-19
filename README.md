@@ -26,12 +26,15 @@
   <a href="https://roots.io/"><strong><code>Website</code></strong></a> &nbsp;&nbsp; <a href="https://docs.roots.io/sage/10.x/installation/"><strong><code>Documentation</code></strong></a> &nbsp;&nbsp; <a href="https://github.com/roots/sage/releases"><strong><code>Releases</code></strong></a> &nbsp;&nbsp; <a href="https://discourse.roots.io/"><strong><code>Support</code></strong></a>
 </p>
 
-
 ## Features
 
 - Harness the power of [Laravel](https://laravel.com) and its available packages thanks to [Acorn](https://github.com/roots/acorn).
 - Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/master/blade).
 - Lightning fast frontend development workflow powered by [Bud](https://bud.js.org/).
+
+## Conventions
+
+- You must use `.eslintrc` rules in the app development.
 
 ## Requirements
 
@@ -89,7 +92,7 @@ themes/your-theme-name/   # → Root of your Sage based theme
 - `yarn dev` — Compile assets when file changes are made, start Browsersync session
 - `yarn build` — Compile assets for production
 
-## Development
+## Backend
 
 ### Types
 
@@ -166,11 +169,51 @@ class Example {
 
 But to make it work, there is a need to initialize instance using `fireclass` function: `fireclass(Example::class)`. Of course you can also put all the hoods in default way (constructor).
 
-### Blocks
+## Scripts
+
+All the app modules should be initialized as `App` class attributes placed in `app.js` file.
+
+### Routes
+
+Routes module can be used for firing custom functions only on specific pages. 
+
+#### Creation
+
+Create route controller in `@scripts/routes` directory.
+
+```js
+class Home {
+  init() {
+  }
+
+  finalize() {
+  }
+};
+```
+
+#### Initialization
+
+Initialize route controller in `@scripts/modules/Router` constructor.
+
+```js
+this.routes = {
+  home: new Home(),
+};
+```
+
+#### Firing
+
+Router will take all `<body>` classes and convert them to `camelCase` that become routes keys that will be used for firing specific events. So for example if you want to fire specific functions pages that have `template-home` class, create a new controller and assign it to `templateHome` in the router. The system will automatically fire `init` or `finalize` functions.
+
+### Utils
+
+`@scripts/utils` directory can be used for creating simple functions that may be used across the application. Please try to categorize them by meaing (for example, place array utils in `@scripts/utils/array.js` file).
+
+## Blocks
 
 Blocks can be used for building website content sections. The main advantage over `Sage` components is that assets are loaded on demand. So when specific block is not used on the page, its assets are not loaded at all. `Sage` components loads all the assets in the main `script.js` and `style.js` files, so assets are loaded even when not needed.
 
-#### Structure
+### Structure
 
 ```sh
 ├── app/
@@ -185,7 +228,7 @@ Blocks can be used for building website content sections. The main advantage ove
 │   ├── ├── ├── template.blade.php
 ```
 
-#### Creation
+### Creation
 
 New block can be created using the following command. That's all. All the block controllers will be initialized automatically.
 
@@ -193,21 +236,21 @@ New block can be created using the following command. That's all. All the block 
 wp firestarter block create --name=Testimonial
 ```
 
-#### Using
+### Using
 
 ```php
 {!! firestarter()->block('testimonial')->render(); !!}
 ```
 
-### Settings
+## Settings
 
 Firestarter implements settings page...
 
-### Integrations
+## Integrations
 
-#### ACF
+### ACF
 
-##### Local JSON
+#### Local JSON
 
 Theme by default uses [Local JSON](https://www.advancedcustomfields.com/resources/local-json/) feature and stores fields sonfiguration in `/resources/fields` directory. You can disable this feature with the following `wp-config.php` entry.
 
@@ -215,11 +258,11 @@ Theme by default uses [Local JSON](https://www.advancedcustomfields.com/resource
 define('FIRESTARTER_INTEGRATIONS_ACF_LOCAL_JSON', false);
 ```
 
-##### Blocks
+#### Blocks
 
 Firestarter adds support for [ACF Blocks](https://www.advancedcustomfields.com/resources/blocks/). So you can use previously described blocks architecture with ACF without any additional work.
 
-##### Settings
+#### Settings
 
 Firestarter implements support for [ACF Options](https://www.advancedcustomfields.com/resources/options-page/).
 

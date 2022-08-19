@@ -44,7 +44,7 @@ module.exports = async (app) => {
     /**
      * Development origin
      */
-    .serve("http://0.0.0.0:3000")
+    .serve("http://localhost:3000")
 
     /**
      * URI of the `public` directory

@@ -4,16 +4,6 @@ class Block {
   }
 }
 
-class Base {
-  constructor() {
-    this.blocks = document.querySelectorAll('[data-block="base"]');
-
-    if (this.blocks.length) {
-      this.blocks.forEach(block => {
-        new Block(block);
-      });
-    }
-  }
-}
-
-new Base();
+document.querySelectorAll('[data-block="base"]').forEach(block => {
+  new Block(block);
+});

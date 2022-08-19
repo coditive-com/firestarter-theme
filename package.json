@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "bud dev",
     "build": "bud build",
+    "lint": "eslint resources/scripts",
     "translate": "yarn translate:pot && yarn translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
     "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
@@ -26,5 +27,8 @@
     "stylelint": "^14.0.0",
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-order": "^5.0.0"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   }
 }

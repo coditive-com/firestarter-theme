@@ -1,8 +1,9 @@
-import { handleNavigationToggler } from "../components/navigation";
+import { handleToggler } from '@scripts/components/navigation';
 
-export default {
+class Common {
   init() {
-    handleNavigationToggler();
-  },
-  finalize() {}
-};
+    handleToggler();
+  }
+}
+
+export default Common;
