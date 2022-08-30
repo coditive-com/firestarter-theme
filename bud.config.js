@@ -45,9 +45,4 @@ module.exports = async (app) => {
      * Development origin
      */
     .serve("http://localhost:3000")
-
-    /**
-     * URI of the `public` directory
-     */
-    .setPublicPath("/app/themes/sage/public/");
 };
