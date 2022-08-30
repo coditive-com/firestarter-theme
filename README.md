@@ -246,6 +246,12 @@ wp firestarter block create --name=Testimonial
 
 Firestarter implements settings page...
 
+## Assets
+
+Firestarter contains two directories for assets:
+- `resources/images` - directory for images that can be accessed in CSS files (for example `url('../../images/filename.jpg')`) and via the `@asset` directive (for example `@assets('images/filename.jpg')`)
+- `resources/svg` - directory for images that can be accessed via `@svg` directive to get the full content of file, for example `@svg('svg/filename.svg')`
+
 ## Integrations
 
 ### ACF
