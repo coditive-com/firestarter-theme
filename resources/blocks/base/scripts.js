@@ -4,6 +4,6 @@ class Block {
   }
 }
 
-document.querySelectorAll('[data-block="base"]').forEach(block => {
+document.querySelectorAll('[data-block="base"]').forEach((block) => {
   new Block(block);
 });
