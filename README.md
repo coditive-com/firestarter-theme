@@ -89,7 +89,7 @@ themes/your-theme-name/   # → Root of your Sage based theme
 
 ##  Theme Commands
 
-- `yarn dev` — Compile assets when file changes are made, start Browsersync session
+- `yarn dev` — Compile assets when file changes are made, start dev session
 - `yarn build` — Compile assets for production
 
 ## Backend
