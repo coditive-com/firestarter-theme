@@ -34,7 +34,7 @@ module.exports = async (app) => {
     /**
      * Matched files trigger a page reload when modified
      */
-    .watch(["resources/views/**/*", "app/**/*"])
+    .watch(["resources/views/**/*", "app/**/*", "resources/blocks/**/*"])
 
     /**
      * Proxy origin (`WP_HOME`)
