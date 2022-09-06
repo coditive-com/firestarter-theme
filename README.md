@@ -137,7 +137,7 @@ This facade might be used everywhere you need using `firestarter` function. Exam
 
 ### Hooks
 
-Coditive theme a custom way for firing the WordPress hooks in the controllers. You can use `@action`, `@filter` and `@shortcode` in the comment block for initializing hooks in specific class.
+Coditive theme uses a custom way for firing the WordPress hooks in the controllers. You can use `@action`, `@filter` and `@shortcode` in the comment block for initializing hooks in specific class.
 
 ```php
 class Example {
