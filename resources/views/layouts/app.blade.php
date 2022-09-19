@@ -2,10 +2,10 @@
   {{ __('Skip to content') }}
 </a>
 
-@include('sections.site-header')
+@include('partials.site-header')
 
   <main id="main" class="-wrapper @yield('main-class')">
     @yield('content')
   </main>
 
-@include('sections.site-footer')
+@include('partials.site-footer')
