@@ -6,9 +6,9 @@
   </div>
 
   <button id="primary-navigation-toggler" class="site-header__toggler" type="button">
-    <span class="side-header__togler-line"></span>
-    <span class="side-header__togler-line"></span>
-    <span class="side-header__togler-line"></span>
+    <span class="side-header__toggler-line"></span>
+    <span class="side-header__toggler-line"></span>
+    <span class="side-header__toggler-line"></span>
   </button>
 
   @if (has_nav_menu('primary_navigation'))
