@@ -29,7 +29,7 @@ module.exports = async (app) => {
     /**
      * Directory contents to be included in the compilation
      */
-    .assets(["images", "svg"])
+    .assets(["fonts", "images"])
 
     /**
      * Matched files trigger a page reload when modified
