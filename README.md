@@ -42,10 +42,13 @@ Make sure all dependencies have been installed before moving on:
 
 - [Acorn](https://docs.roots.io/acorn/2.x/installation/) v2
 - [WordPress](https://wordpress.org/) >= 5.9
+- [WP CLI](https://wp-cli.org/)
 - [PHP](https://secure.php.net/manual/en/install.php) >= 7.4.0 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
 - [Composer](https://getcomposer.org/download/)
 - [Node.js](http://nodejs.org/) >= 16
 - [Yarn](https://yarnpkg.com/en/docs/install)
+
+Make sure your local DB_HOST is set to: `127.0.0.1`
 
 ## Theme installation
 
@@ -282,7 +285,7 @@ Firestarter implements settings page...
 
 Firestarter contains two directories for assets:
 - `resources/images` - directory for images that can be accessed in CSS files (for example `url('../../images/filename.jpg')`) and via the `@asset` directive (for example `@assets('images/filename.jpg')`)
-- `resources/svg` - directory for images that can be accessed via `@svg` directive to get the full content of file, for example `@svg('svg/filename.svg')`
+- `resources/images/svg` - directory for images that can be accessed via `@svg` directive to get the full content of file, for example `@svg('images.svg.filename.svg')`
 
 ## Integrations
 
