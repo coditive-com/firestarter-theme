@@ -242,6 +242,38 @@ wp firestarter block create --name=Testimonial
 {!! firestarter()->block('testimonial')->render(); !!}
 ```
 
+### Practices
+
+#### Data Structure
+
+It is good to treat block controler as main source of data structure. So when the block needs to use `$title` in the template, this should be reflected in block data structure. Thank's to this, enyone can see what variables are available in the template and what are their default types and values. 
+
+In the example below, we need to utilize `$title` data in the template. So we set title in the structure with default value set as string, and then set the final value from some function.
+
+```php
+class estimonial extends Block
+{
+    public function __construct()
+    {
+        $this->setId('testimonial');
+        $this->setName('Testimonial');
+        $this->setStructure([
+          'title' => '',
+        ]);
+    }
+
+    public function parse(array $data): array
+    {
+        $data = array_replace_recursive($data, $this->getStructure());
+        $data = apply_filters('firestarter_block_testimonial_data', $data);
+
+        $data['title'] = get_the_title_from_somewhere();
+
+        return $data;
+    }
+}
+```
+
 ## Settings
 
 Firestarter implements settings page...
