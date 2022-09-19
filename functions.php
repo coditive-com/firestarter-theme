@@ -12,7 +12,7 @@
 */
 
 if (! file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
-    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
+    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'firestarter'));
 }
 
 require $composer;
@@ -33,11 +33,11 @@ try {
     \Roots\bootloader();
 } catch (Throwable $e) {
     wp_die(
-        __('You need to install Acorn to use this theme.', 'sage'),
+        __('You need to install Acorn to use this theme.', 'firestarter'),
         '',
         [
             'link_url' => 'https://docs.roots.io/acorn/2.x/installation/',
-            'link_text' => __('Acorn Docs: Installation', 'sage'),
+            'link_text' => __('Acorn Docs: Installation', 'firestarter'),
         ]
     );
 }
@@ -59,7 +59,7 @@ collect(['setup', 'filters'])
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
                 /* translators: %s is replaced with the relative file path */
-                sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
+                sprintf(__('Error locating <code>%s</code> for inclusion.', 'firestarter'), $file)
             );
         }
     });

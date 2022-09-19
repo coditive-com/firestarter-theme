@@ -45,7 +45,7 @@ class Post extends Composer
                 return get_the_title($home);
             }
 
-            return __('Latest Posts', 'sage');
+            return __('Latest Posts', 'firestarter');
         }
 
         if (is_archive()) {
@@ -55,13 +55,13 @@ class Post extends Composer
         if (is_search()) {
             return sprintf(
                 /* translators: %s is replaced with the search query */
-                __('Search Results for %s', 'sage'),
+                __('Search Results for %s', 'firestarter'),
                 get_search_query()
             );
         }
 
         if (is_404()) {
-            return __('Not Found', 'sage');
+            return __('Not Found', 'firestarter');
         }
 
         return get_the_title();

@@ -18,7 +18,7 @@
     </div>
   @else
     <div class="error-message">
-      {{ __('Sorry, no results were found.', 'sage') }}
+      {{ __('Sorry, no results were found.', 'firestarter') }}
     </div>
   @endif
 @endsection
