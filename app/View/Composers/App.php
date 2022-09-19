@@ -49,6 +49,6 @@ class App extends Composer
     {
         $copyrights = firestarter()->settings()->get('site_copyrights');
 
-        return $copyrights ?? '';
+        return ! empty($copyrights) && is_string($copyrights) ? $copyrights : '';
     }
 }
