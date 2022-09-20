@@ -25,6 +25,7 @@ class PostTile extends Component
   public function __construct($class, $postId = null)
   {
     $this->class = $class;
+    $this->postId = $postId;
     $this->setTitle(get_the_title($this->postId));
     $this->setLink(get_the_permalink($this->postId));
     $this->setExcerpt(get_the_excerpt($this->postId));
