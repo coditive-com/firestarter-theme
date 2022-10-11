@@ -32,6 +32,8 @@ add_action('enqueue_block_editor_assets', function () {
  * @return void
  */
 add_action('after_setup_theme', function () {
+    load_theme_textdomain('firestarter', get_template_directory() . '/resources/lang');
+
     /**
      * Enable features from the Soil plugin if activated.
      * @link https://roots.io/plugins/soil/
