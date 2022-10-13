@@ -22,3 +22,6 @@
     </div>
   @endif
 @endsection
+
+
+@dump(firestarter()->settings()->get('site_webp_images'))

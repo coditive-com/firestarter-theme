@@ -15,8 +15,24 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "row",
+            "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_6347e65e6cb12",
+                    "label": "Theme: General Settings",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0
+                },
                 {
                     "key": "field_62af79bb302d7",
                     "label": "Logo",
@@ -83,6 +99,41 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_6347e6756cb13",
+                    "label": "Theme: Media Settings",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_6347e6d46cb14",
+                    "label": "Generate WEBP",
+                    "name": "webp_images",
+                    "type": "true_false",
+                    "instructions": "The module generates the webp version of the uploaded images. Please remember that it is not fully supported in modern browsers. It also requires special entries added in .htaccess.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Enabled",
+                    "ui_off_text": "Disabled"
                 }
             ]
         }
@@ -105,5 +156,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1655974816
+    "modified": 1665656624
 }
