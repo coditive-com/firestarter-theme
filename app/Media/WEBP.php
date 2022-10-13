@@ -12,7 +12,10 @@ class WEBP
     'image/png'
   ];
 
-  public function __construct()
+  /**
+   * @action init
+   */
+  public function action(): void
   {
     $this->convertImages = ! empty($option = firestarter()->settings()->get('site_webp_images')) ? $option : false;
   }
