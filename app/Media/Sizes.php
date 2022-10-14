@@ -19,24 +19,24 @@ class Sizes
             'width' => 900,
             'height' => 400,
             'crop' => ['center', 'center'],
-        ]
+        ],
     ];
 
     private array $additional = [
         'thumbnail@2x' => [
             'width' => 600,
             'height' => 600,
-            'crop' => ['center', 'center']
+            'crop' => ['center', 'center'],
         ],
         'medium@2x' => [
             'width' => 1200,
             'height' => 600,
-            'crop' => ['center', 'center']
+            'crop' => ['center', 'center'],
         ],
         'large@2x' => [
             'width' => 1800,
             'height' => 800,
-            'crop' => ['center', 'center']
+            'crop' => ['center', 'center'],
         ],
     ];
 

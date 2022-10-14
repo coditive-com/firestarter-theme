@@ -84,8 +84,10 @@ class WEBP
     {
         if ($this->isActive() && $this->isAllowedMimeType($filePath)) {
             $webpPath = $this->getWebpPath($filePath);
+
             return ! empty($webpPath) && file_exists($webpPath);
         }
+
         return false;
     }
 

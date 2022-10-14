@@ -312,6 +312,7 @@ firestarter()->settings()->get('site_logo')
 ```
 
 ### WEBP
+Intended for apache servers.
 
 If you use the ACF Pro plugin you can enable the WebP functionality in the dashboard, just go to the "Firestarter -> Media Settings".
 To make it works you need to update your `.htaccess` files with the following rules:
@@ -332,3 +333,5 @@ To make it works you need to update your `.htaccess` files with the following ru
 ```
 
 If you don't use the ACF Pro plugin and you would like to enable this functionality then you can go to the `app -> Media -> WEBP.php` file and set `$this->convertImages` to `true`.
+
+You can check if it works correctly by checking, for example, the network tab in the Chrome developer tools (see images type).
