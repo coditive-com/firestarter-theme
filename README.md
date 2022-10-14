@@ -103,7 +103,7 @@ Firestarter uses PHP types as much as possible...
 
 ### Modules
 
-Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so instead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type. 
+Theme uses [facade design pattern](https://refactoring.guru/design-patterns/facade/php/example) for managing internal dependencies, so instead of placing everything in the `setup.php` or `filters.php` files as `Sage` recommends, we should wrap custom features in specific boundaries placed in the `app` directory. Let's assume that we need to create `Posts` boundary that handles custom features for `Post` type.
 
 ```sh
 ├── app/
@@ -178,7 +178,7 @@ All the app modules should be initialized as `App` class attributes placed in `a
 
 ### Routes
 
-Routes module can be used for firing custom functions only on specific pages. 
+Routes module can be used for firing custom functions only on specific pages.
 
 #### Creation
 
@@ -249,7 +249,7 @@ wp firestarter block create --name=Testimonial
 
 #### Data Structure
 
-It is good to treat block controler as main source of data structure. So when the block needs to use `$title` in the template, this should be reflected in block data structure. Thank's to this, enyone can see what variables are available in the template and what are their default types and values. 
+It is good to treat block controler as main source of data structure. So when the block needs to use `$title` in the template, this should be reflected in block data structure. Thank's to this, enyone can see what variables are available in the template and what are their default types and values.
 
 In the example below, we need to utilize `$title` data in the template. So we set title in the structure with default value set as string, and then set the final value from some function.
 
@@ -311,4 +311,27 @@ Firestarter implements support for [ACF Options](https://www.advancedcustomfield
 firestarter()->settings()->get('site_logo')
 ```
 
-TG: We should add here more information about this functionality, for me, it wasn't clear why I should use it instead of the "classic" get_field function.
+### WEBP
+Intended for apache servers.
+
+If you use the ACF Pro plugin you can enable the WebP functionality in the dashboard, just go to the "Firestarter -> Media Settings".
+To make it works you need to update your `.htaccess` files with the following rules:
+
+```
+# CACHING | WebP Support | https://do.co/3aIKIb8
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTP_ACCEPT} image/webp
+	RewriteCond %{REQUEST_URI}  (?i)(.*)(\.jpe?g|\.png)$
+	RewriteCond %{DOCUMENT_ROOT}%1%2.webp -f
+	RewriteRule (?i)(.*)(\.jpe?g|\.png)$ %1%2\.webp [L,T=image/webp]
+
+	RewriteCond %{HTTP_ACCEPT} image/webp
+	RewriteCond %{REQUEST_URI}  (?i)(.*)(\.jpe?g|\.png)$
+	RewriteCond %{DOCUMENT_ROOT}%1.webp -f
+	RewriteRule (?i)(.*)(\.jpe?g|\.png)$ %1\.webp [L,T=image/webp]
+</IfModule>
+```
+
+If you don't use the ACF Pro plugin and you would like to enable this functionality then you can go to the `app -> Media -> WEBP.php` file and set `$this->convertImages` to `true`.
+
+You can check if it works correctly by checking, for example, the network tab in the Chrome developer tools (see image type column or response headers content-type).

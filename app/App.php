@@ -6,6 +6,7 @@ use App\Core\Singleton;
 use App\Core\Settings;
 use App\Core\Setup;
 use App\Integrations\Integrations;
+use App\Media\Media;
 use App\View\Blocks\Blocks;
 use App\View\Blocks\Block;
 
@@ -33,6 +34,7 @@ class App extends Singleton
     {
         $this->blocks = fireclass(Blocks::class);
         $this->integrations = fireclass(Integrations::class);
+        $this->media = fireclass(Media::class);
         $this->settings = fireclass(Settings::DEFAULT);
         $this->setup = fireclass(Setup::class);
     }
@@ -50,6 +52,11 @@ class App extends Singleton
     public function integrations(): Integrations
     {
         return $this->integrations;
+    }
+
+    public function media(): Media
+    {
+        return $this->media;
     }
 
     public function settings(): Settings
