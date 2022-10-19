@@ -18,6 +18,15 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
+ * Register the theme admin assets.
+ *
+ * @return void
+ */
+add_action('admin_enqueue_scripts', function () {
+    bundle('admin')->enqueue();
+}, 100);
+
+/**
  * Register the theme assets with the block editor.
  *
  * @return void
