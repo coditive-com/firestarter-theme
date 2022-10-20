@@ -22,6 +22,7 @@ module.exports = async (app) => {
      * Application entrypoints
      */
     .entry({
+      admin: ["@scripts/admin", "@styles/admin"],
       app: ["@scripts/app", "@styles/app"],
       editor: ["@scripts/editor", "@styles/editor"],
     })
