@@ -13,8 +13,17 @@ class Integrations
         fireclass(CLI::class);
         fireclass(WP::class);
 
-        if (in_array('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+        if ($this->isACFActive()) {
             fireclass(ACF::class);
+        }
+    }
+
+    public function isACFActive(): bool
+    {
+        if (is_multisite()) {
+            return array_key_exists('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins', get_site_option('active_sitewide_plugins')));
+        } else {
+            return in_array('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins', get_option('active_plugins')));
         }
     }
 }
