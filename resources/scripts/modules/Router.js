@@ -1,4 +1,4 @@
-import Common from '@scripts/routes/Common';
+import Common from '@scripts/routes/common';
 import { toCamelCase } from '@scripts/utils/string';
 
 class Router {
