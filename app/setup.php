@@ -14,7 +14,11 @@ use function Roots\bundle;
  * @return void
  */
 add_action('wp_enqueue_scripts', function () {
-    bundle('app')->enqueue();
+    bundle('app')
+        ->enqueue()
+        ->localize('app', [
+            'ajax' => admin_url('admin-ajax.php'),
+        ]);
 }, 100);
 
 /**
